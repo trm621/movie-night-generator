@@ -9,7 +9,25 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    
+    <!--movie modal start-->
+    <div id="movie-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Feeling Hungry?</p>
+            <button onclick="closeModal()" class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <p>We can set you up with a recipe to go with your movie.</p>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success">Yes! Feed me!</button>
+            <button class="button">No, just a movie!</button>
+            <button onclick="closeModal()" class="button">Wait, go back!</button>
+          </footer>
+        </div>
+      </div>
+      <!--moive modal end-->
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
