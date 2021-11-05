@@ -268,4 +268,3 @@ let foodQuiz = function() {
 
 //event listener to create quiz form when "get started!" is pressed
 document.getElementById("start-button").addEventListener("click", movieQuiz);
-document.getElementById("")
