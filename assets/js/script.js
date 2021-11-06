@@ -18,6 +18,7 @@ let movieQuiz = function() {
 
     //create div to put elements in and append to page
     let quizContainerEl = document.createElement("div");
+    quizContainerEl.setAttribute("id","quiz-container");
     mainPage.appendChild(quizContainerEl);
 
     //create header
@@ -33,7 +34,7 @@ let movieQuiz = function() {
     let funnyInputEl = document.createElement("input");
     funnyInputEl.setAttribute("type","radio");
     funnyInputEl.setAttribute("id","comedy-input");
-    funnyInputEl.setAttribute("value","comedy");
+    funnyInputEl.setAttribute("value","35");
     funnyInputEl.setAttribute("name","movie-input");
 
     let funnyLabelEl = document.createElement("label");
@@ -51,7 +52,7 @@ let movieQuiz = function() {
     let familyInputEl = document.createElement("input");
     familyInputEl.setAttribute("type","radio");
     familyInputEl.setAttribute("id","family-input");
-    familyInputEl.setAttribute("value","family");
+    familyInputEl.setAttribute("value","certification_country=US&certification.lte=PG");
     familyInputEl.setAttribute("name","movie-input");
 
     let familyLabelEl = document.createElement("label");
@@ -69,7 +70,7 @@ let movieQuiz = function() {
     let actionInputEl = document.createElement("input");
     actionInputEl.setAttribute("type","radio");
     actionInputEl.setAttribute("id","action-input");
-    actionInputEl.setAttribute("value","action");
+    actionInputEl.setAttribute("value","28");
     actionInputEl.setAttribute("name","movie-input");
 
     let actionLabelEl = document.createElement("label");
@@ -87,7 +88,7 @@ let movieQuiz = function() {
     let horrorInputEl = document.createElement("input");
     horrorInputEl.setAttribute("type","radio");
     horrorInputEl.setAttribute("id","scary-input");
-    horrorInputEl.setAttribute("value","scary");
+    horrorInputEl.setAttribute("value","27");
     horrorInputEl.setAttribute("name","movie-input");
 
     let horrorLabelEl = document.createElement("label");
@@ -105,7 +106,7 @@ let movieQuiz = function() {
     let romanceInputEl = document.createElement("input");
     romanceInputEl.setAttribute("type","radio");
     romanceInputEl.setAttribute("id","romance-input");
-    romanceInputEl.setAttribute("value","romance");
+    romanceInputEl.setAttribute("value","10749");
     romanceInputEl.setAttribute("name","movie-input");
 
     let romanceLabelEl = document.createElement("label");
@@ -123,7 +124,7 @@ let movieQuiz = function() {
     let dramaInputEl = document.createElement("input");
     dramaInputEl.setAttribute("type","radio");
     dramaInputEl.setAttribute("id","drama-input");
-    dramaInputEl.setAttribute("value","drama");
+    dramaInputEl.setAttribute("value","18");
     dramaInputEl.setAttribute("name","movie-input");
 
     let dramaLabelEl = document.createElement("label");
@@ -137,6 +138,11 @@ let movieQuiz = function() {
     let doneMovieButttonEl = document.createElement("button");
     doneMovieButttonEl.textContent = "All Set!";
     quizContainerEl.appendChild(doneMovieButttonEl);
+};
+
+//figure out which button is checked
+let getRadioValue = function() {
+    document.querySelector('input[name=movie-input]:checked').value;
 };
 
 //event listener to create quiz form when "get started!" is pressed
