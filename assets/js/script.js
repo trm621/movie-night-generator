@@ -20,7 +20,7 @@ let movieQuiz = function() {
     //remove the welcome page
     let welcomePage = document.getElementById("welcome-page");
     welcomePage.remove();
-
+  
     //create div to put elements in and append to page
     let quizContainerEl = document.createElement("div");
     quizContainerEl.setAttribute("id","quiz-container");
