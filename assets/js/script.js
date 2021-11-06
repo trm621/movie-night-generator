@@ -143,7 +143,12 @@ let movieQuiz = function() {
     let doneMovieButttonEl = document.createElement("button");
     doneMovieButttonEl.textContent = "All Set!";
     quizContainerEl.appendChild(doneMovieButttonEl);
+    doneMovieButttonEl.addEventListener("click", openFoodModal())
 };
+
+var openFoodModal = function() {
+    
+}
 
 //function to fetch movie data
 let fetchMovie = function() {
@@ -166,5 +171,24 @@ let fetchMovie = function() {
     })
 };
 
+//function to fetch recipes
+let fetchRecipe = function() {
+    fetch("https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "tasty.p.rapidapi.com",
+            "x-rapidapi-key": "3045accac6msh300a69851f07f41p1bf6b9jsn0abefe11abef"
+        }
+    })
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
 //event listener to create quiz form when "get started!" is pressed
 document.getElementById("start-button").addEventListener("click", movieQuiz);
+
+fetchRecipe();
