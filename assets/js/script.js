@@ -52,7 +52,7 @@ let movieQuiz = function() {
     let familyInputEl = document.createElement("input");
     familyInputEl.setAttribute("type","radio");
     familyInputEl.setAttribute("id","family-input");
-    familyInputEl.setAttribute("value","certification_country=US&certification.lte=PG");
+    familyInputEl.setAttribute("value","certification_country=US&certification=PG|G");
     familyInputEl.setAttribute("name","movie-input");
 
     let familyLabelEl = document.createElement("label");
