@@ -1,0 +1,64 @@
+/* styling the main page begins */
+
+main {
+background-color: rgb(31, 17, 5);
+
+}
+
+main h1, p   {
+text-align: center;
+color: white;
+
+
+}
+
+.img1{
+
+float: left;
+
+
+}
+
+.img2 {
+
+float: right;
+
+}
+
+#start-button {
+
+
+    justify-content: center;
+}
+/* styling the modal begins */
+.modal-card-head {
+
+ background-color: rgb(31, 17, 5);
+
+
+}
+
+.modal-card-foot {
+    justify-content: center;
+
+background-color: rgb(31, 17, 5);
+
+}
+
+.modal-card-body p {
+
+ color:    rgb(31, 17, 5);
+
+
+}
+
+.smiley {
+
+ float: left;
+
+}
+
+.modal-card-title {
+    justify-content: center;
+    font-weight:bolder;
+}
