@@ -1,0 +1,26 @@
+main {
+background-color: rgb(31, 17, 5);
+
+}
+
+main h1, p   {
+text-align: center;
+color: white;
+
+
+}
+
+.img1{
+
+float: left;
+
+
+}
+
+.img2 {
+
+float: right;
+
+}
+
+
