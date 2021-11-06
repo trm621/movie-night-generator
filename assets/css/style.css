@@ -23,4 +23,30 @@ float: right;
 
 }
 
+.modal-card-head {
+
+ background-color: rgb(31, 17, 5);
+
+
+}
+
+.modal-card-foot {
+
+
+background-color: rgb(31, 17, 5);
+
+}
+
+.modal-card-body p {
+
+ color:    rgb(31, 17, 5);
+
+
+}
+
+.smiley {
+
+ float: left;
+
+}
 
