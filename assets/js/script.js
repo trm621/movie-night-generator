@@ -34,7 +34,7 @@ let movieQuiz = function() {
     let funnyInputEl = document.createElement("input");
     funnyInputEl.setAttribute("type","radio");
     funnyInputEl.setAttribute("id","comedy-input");
-    funnyInputEl.setAttribute("value","35");
+    funnyInputEl.setAttribute("value","with_genres=35");
     funnyInputEl.setAttribute("name","movie-input");
 
     let funnyLabelEl = document.createElement("label");
@@ -56,7 +56,7 @@ let movieQuiz = function() {
     familyInputEl.setAttribute("name","movie-input");
 
     let familyLabelEl = document.createElement("label");
-    familyLabelEl.setAttribute("for","comedy-input");
+    familyLabelEl.setAttribute("for","family-input");
     familyLabelEl.textContent = "  Something for the whole family!";
 
     quizOption2El.appendChild(familyInputEl);
@@ -70,7 +70,7 @@ let movieQuiz = function() {
     let actionInputEl = document.createElement("input");
     actionInputEl.setAttribute("type","radio");
     actionInputEl.setAttribute("id","action-input");
-    actionInputEl.setAttribute("value","28");
+    actionInputEl.setAttribute("value","with_genres=28");
     actionInputEl.setAttribute("name","movie-input");
 
     let actionLabelEl = document.createElement("label");
@@ -88,7 +88,7 @@ let movieQuiz = function() {
     let horrorInputEl = document.createElement("input");
     horrorInputEl.setAttribute("type","radio");
     horrorInputEl.setAttribute("id","scary-input");
-    horrorInputEl.setAttribute("value","27");
+    horrorInputEl.setAttribute("value","with_genres=27");
     horrorInputEl.setAttribute("name","movie-input");
 
     let horrorLabelEl = document.createElement("label");
@@ -106,7 +106,7 @@ let movieQuiz = function() {
     let romanceInputEl = document.createElement("input");
     romanceInputEl.setAttribute("type","radio");
     romanceInputEl.setAttribute("id","romance-input");
-    romanceInputEl.setAttribute("value","10749");
+    romanceInputEl.setAttribute("value","with_genres=10749");
     romanceInputEl.setAttribute("name","movie-input");
 
     let romanceLabelEl = document.createElement("label");
@@ -124,7 +124,7 @@ let movieQuiz = function() {
     let dramaInputEl = document.createElement("input");
     dramaInputEl.setAttribute("type","radio");
     dramaInputEl.setAttribute("id","drama-input");
-    dramaInputEl.setAttribute("value","18");
+    dramaInputEl.setAttribute("value","with_genres=18");
     dramaInputEl.setAttribute("name","movie-input");
 
     let dramaLabelEl = document.createElement("label");
@@ -144,7 +144,21 @@ let movieQuiz = function() {
 let fetchMovie = function() {
     //find the selected radio button
     let movieSearchCode = document.querySelector('input[name=movie-input]:checked').value;
-    console.log(movieSearchCode);
+    let tmdbURL = "https://api.themoviedb.org/3/discover/movie?api_key=c0ab3fea9a9c982aea8dbffab1e88337&language=en-US&sort_by=popularity.desc&" + movieSearchCode + "&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate";
+
+    console.log(tmdbURL);
+    fetch(tmdbURL).then(function(response) {
+        //successful request
+        if (response.ok) {
+            response.json().then(function(data) {
+                console.log(data); //here is where the functions that display the data will need to go, for now it's console log :)
+            })
+        }
+    })
+    //for if there is an error with the api
+    .catch(function(error) {
+        alert("An error occurred - please try again later!") //placeholder!! NO ALERTS
+    })
 };
 
 //event listener to create quiz form when "get started!" is pressed
