@@ -4,10 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>MOVIE TIME</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
+
+<!-- welcome page -->
+<main id="main-page">
+    <div id= "welcome-page">
+        <h1 class="is-size-1 is-uppercase has-text-weight-bold">Welcome to Movie Night Generator!</h1>
+        <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="img2 image is-64x64"/>
+         <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="img2 image is-64x64"/>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore a incidunt, delectus sed ratione, optio magni quibusdam eligendi voluptas nesciunt consequuntur! Assumenda, dolorum fugit harum quidem suscipit est accusamus.</p>
+        <button id="start-button" class=" button is-warning">Click Here to Get Started!</button>
+    </div>
+</main>
+
+<!--movie modal start-->
+
+    <div id="movie-modal  " class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Feeling Hungry?</p>
+            <button onclick="closeMovieModal()" class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <p>We can set you up with a recipe to go with your movie.</p>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success">Yes! Feed me!</button>
+            <button class="button">No, just a movie!</button>
+            <button onclick="closeMovieModal()" class="button">Wait, go back!</button>
+          </footer>
+        </div>
+      </div>
+      <!--moive modal end-->
+
+  
+    <div class="modal  ">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <!---modal header start-->
+      <header class="modal-card-head">
+
+        <span class="modal-card-title icon-text">
+          <span class="icon is-medium">
+            <i class="fas fa-home">
+             <img src="./assets/images/food.png">
+            </i>
+          </span>
+          <span class="has-text-warning">Feeling Hungry?</span>
+        </span>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <!----modal header end-->
+      <section class="modal-card-body">
+        
+      
+        <break></break>
+        <p>We can set you up with a recipe to go with your movie!</p>
+      </section>
+      <footer class="modal-card-foot">
+        <button class=" button is-warning">Wait, No go back!</button>
+        <button class="button is-warning">Yes! Feed me!</button>
+        <button class="button is-warning">Nah, I Only Want a Movie</button>
+        
+      </footer>
+    </div>
+  </div>
+
     
 <script src="assets/js/script.js"></script>
 </body>
