@@ -52,5 +52,11 @@ background-color: rgb(31, 17, 5);
 
 .modal-card-title {
     justify-content: center;
-    font-weight:bolder
+    font-weight:bolder;
+}
+
+#start-button {
+
+
+    justify-content: center;
 }
