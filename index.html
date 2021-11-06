@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title>MOVIE TIME</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <!--movie modal start-->
+
+<!-- welcome page -->
+<main id="main-page">
+    <div id="welcome-page">
+        <h1>Welcome to Movie Night Generator!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore a incidunt, delectus sed ratione, optio magni quibusdam eligendi voluptas nesciunt consequuntur! Assumenda, dolorum fugit harum quidem suscipit est accusamus.</p>
+        <button id="start-button">Click Here to Get Started!</button>
+    </div>
+</main>
+
+<!--movie modal start-->
+
     <div id="movie-modal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
             <p class="modal-card-title">Feeling Hungry?</p>
-            <button onclick="closeModal()" class="delete" aria-label="close"></button>
+            <button onclick="closeMovieModal()" class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">
             <p>We can set you up with a recipe to go with your movie.</p>
@@ -23,17 +34,13 @@
           <footer class="modal-card-foot">
             <button class="button is-success">Yes! Feed me!</button>
             <button class="button">No, just a movie!</button>
-            <button onclick="closeModal()" class="button">Wait, go back!</button>
+            <button onclick="closeMovieModal()" class="button">Wait, go back!</button>
           </footer>
         </div>
       </div>
       <!--moive modal end-->
-<script src="./assets/js/script.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
-
-  <div class="modal is-active ">
+  
+    <div class="modal is-active ">
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
@@ -52,8 +59,7 @@
       </footer>
     </div>
   </div>
-
-    
-<script src="assets/js/script.js"></script>
+  
+<script src="./assets/js/script.js"></script>
 </body>
 </html>
