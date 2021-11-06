@@ -1,3 +1,5 @@
+/* styling the main page begins */
+
 main {
 background-color: rgb(31, 17, 5);
 
@@ -23,6 +25,12 @@ float: right;
 
 }
 
+#start-button {
+
+
+    justify-content: center;
+}
+/* styling the modal begins */
 .modal-card-head {
 
  background-color: rgb(31, 17, 5);
@@ -53,10 +61,4 @@ background-color: rgb(31, 17, 5);
 .modal-card-title {
     justify-content: center;
     font-weight:bolder;
-}
-
-#start-button {
-
-
-    justify-content: center;
 }
