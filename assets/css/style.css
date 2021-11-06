@@ -31,7 +31,7 @@ float: right;
 }
 
 .modal-card-foot {
-
+    justify-content: center;
 
 background-color: rgb(31, 17, 5);
 
@@ -50,3 +50,7 @@ background-color: rgb(31, 17, 5);
 
 }
 
+.modal-card-title {
+    justify-content: center;
+    font-weight:bolder
+}
