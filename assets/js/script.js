@@ -173,7 +173,7 @@ let fetchMovie = function() {
 
 //function to fetch recipes
 let fetchRecipe = function() {
-    fetch("https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes", {
+    fetch("https://tasty.p.rapidapi.com/recipes/list?", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tasty.p.rapidapi.com",
