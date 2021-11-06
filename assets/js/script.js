@@ -140,9 +140,11 @@ let movieQuiz = function() {
     quizContainerEl.appendChild(doneMovieButttonEl);
 };
 
-//figure out which button is checked
-let getRadioValue = function() {
-    document.querySelector('input[name=movie-input]:checked').value;
+//function to fetch movie data
+let fetchMovie = function() {
+    //find the selected radio button
+    let movieSearchCode = document.querySelector('input[name=movie-input]:checked').value;
+    console.log(movieSearchCode);
 };
 
 //event listener to create quiz form when "get started!" is pressed
