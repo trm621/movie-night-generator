@@ -12,6 +12,7 @@
 
 <!-- welcome page -->
 <main id="main-page">
+
     <div id= "welcome-page">
         <h1 class="is-size-1 is-uppercase has-text-weight-bold">Welcome to Movie Night Generator!</h1>
         <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="img2 image is-64x64"/>
@@ -21,27 +22,23 @@
     </div>
 </main>
 
-<!--movie modal start-->
+<!--error modal start, this needs to be added to .catch-->
 
-    <div id="movie-modal  " class="modal">
+    <div id="error-modal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">Feeling Hungry?</p>
-            <button onclick="closeMovieModal()" class="delete" aria-label="close"></button>
+            <p class="modal-card-title">Uh-oh...</p>
           </header>
           <section class="modal-card-body">
-            <p>We can set you up with a recipe to go with your movie.</p>
+            <p>An error occurred. Please try again!</p>
           </section>
           <footer class="modal-card-foot">
-            <button class="button is-success">Yes! Feed me!</button>
-            <button class="button">No, just a movie!</button>
-            <button onclick="closeMovieModal()" class="button">Wait, go back!</button>
+            <button class="button" onclick="location.reload();">Go Back</button>
           </footer>
         </div>
       </div>
-      <!--moive modal end-->
-
+      <!--error modal end-->
   
     <div class="modal  ">
     <div class="modal-background"></div>
@@ -77,5 +74,6 @@
 
     
 <script src="assets/js/script.js"></script>
+
 </body>
 </html>
