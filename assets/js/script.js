@@ -10,6 +10,11 @@ let closeMovieModal = function() {
     document.getElementById('movie-modal').classList.remove("is-active");
 }
 
+//tell user there's an error
+let activateErrorModal = function() {
+    document.getElementById("error-modal").classList.add("is-active");
+}
+
 //generates the html elements to ask about what type of movie you want when you click start
 let movieQuiz = function() {
     //remove the welcome page
