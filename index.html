@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id='new-body' lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,6 +23,7 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore a incidunt, delectus sed ratione, optio magni quibusdam eligendi voluptas nesciunt consequuntur! Assumenda, dolorum fugit harum quidem suscipit est accusamus.</p>
         <button id="start-button" class=" button is-warning">Click Here to Get Started!</button>
     </div>
+    
 </main>
 
 <!--error modal start, this needs to be added to .catch-->
@@ -50,7 +51,7 @@
       </div>
       <!--error modal end-->
   
-    <div class="modal  ">
+    <div class="modal" id="food-modal">
     <div class="modal-background"></div>
     <div class="modal-card">
       <!---modal header start-->
@@ -67,7 +68,7 @@
         <button class="delete" aria-label="close"></button>
       </header>
       <!----modal header end-->
-      <section class="modal-card-body">
+      <section id="modal-card-body" class="modal-card-body">
         
       
         <break></break>
@@ -75,7 +76,7 @@
       </section>
       <footer class="modal-card-foot">
         <button class=" button is-warning">Wait, No go back!</button>
-        <button class="button is-warning">Yes! Feed me!</button>
+        <button id="food-modal-confirmation" class="button is-warning">Yes! Feed me!</button>
         <button class="button is-warning">Nah, I Only Want a Movie</button>
         
       </footer>
