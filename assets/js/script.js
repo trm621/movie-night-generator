@@ -148,7 +148,7 @@ let movieQuiz = function() {
 // generates html elements needed to select what kind of food the user wants
 // activates with interactive food modal
 let foodQuiz = function() {
-let foodModal = document.getElementById("#modal-card-body")
+let foodModal = document.getElementById("modal-card-body")
 
 // create container to hold food quiz
     let foodContainerEl = document.createElement("div");
@@ -168,7 +168,7 @@ let foodQuizOption1El = document.createElement("div");
     comfortFoodEl.setAttribute("type", "radio");
     comfortFoodEl.setAttribute("id", "comfort-food-input");
     comfortFoodEl.setAttribute("value", "comfort_food");
-    comfortFoodEl.setAttribute("name", "comfort-food-input");
+    comfortFoodEl.setAttribute("name", "food-input");
 
     let comfortFoodLabelEl = document.createElement("label");
     comfortFoodLabelEl.setAttribute("for", "comfort-food-input");
@@ -185,7 +185,7 @@ let foodQuizOption2El = document.createElement("div");
     dateNightEl.setAttribute("type", "radio");
     dateNightEl.setAttribute("id", "date-night-input");
     dateNightEl.setAttribute("value", "date_night");
-    dateNightEl.setAttribute("name", "date-night-input");
+    dateNightEl.setAttribute("name", "food-input");
 
     let dateNightLabelEl = document.createElement("label");
     dateNightLabelEl.setAttribute("for", "date-night-input");
@@ -202,7 +202,7 @@ let foodQuizOption3El = document.createElement("div");
     glutenFreeEl.setAttribute("type", "radio");
     glutenFreeEl.setAttribute("id", "gluten-free-input");
     glutenFreeEl.setAttribute("value", "gluten_free");
-    glutenFreeEl.setAttribute("name", "gluten-free-input");
+    glutenFreeEl.setAttribute("name", "food-input");
 
     let glutenFreeLabelEl = document.createElement("input");
     glutenFreeLabelEl.setAttribute("for", "gluten-free-input");
@@ -219,7 +219,7 @@ let foodQuizOption4El = document.createElement("div");
     vegetarianEl.setAttribute("type", "radio");
     vegetarianEl.setAttribute("id", "vegetarian-input");
     vegetarianEl.setAttribute("value", "vegetarian");
-    vegetarianEl.setAttribute("name", "vegetarian-input");
+    vegetarianEl.setAttribute("name", "food-input");
 
     let vegetarianLabelEl = document.createElement("input");
     vegetarianLabelEl.setAttribute("for", "vegetarian-input");
@@ -236,7 +236,7 @@ let foodQuizOption5El = document.createElement("div");
     underThirtyEl.setAttribute("type", "radio");
     underThirtyEl.setAttribute("id", "under-thirty-minutes-input");
     underThirtyEl.setAttribute("value", "under_30_minutes");
-    underThirtyEl.setAttribute("name", "under-thirty-minutes-input");
+    underThirtyEl.setAttribute("name", "food-input");
     
     let underThirtyLabelEl = document.createElement("input");
     underThirtyLabelEl.setAttribute("for", "under-thirty-minutes-input");
@@ -253,7 +253,7 @@ let foodQuizOption6El = document.createElement("div");
     easyEl.setAttribute("type", "radio");
     easyEl.setAttribute("id", "easy-input");
     easyEl.setAttribute("value", "easy");
-    easyEl.setAttribute("name", "easy-input");
+    easyEl.setAttribute("name", "food-input");
 
     let easyLabelEl = document.createElement("input");
     easyLabelEl.setAttribute("for", "easy-input");
@@ -270,17 +270,17 @@ let foodQuizOption7El = document.createElement("div");
     casualPartyEl.setAttribute("type", "radio");
     casualPartyEl.setAttribute("id", "casual-party-input");
     casualPartyEl.setAttribute("value", "casual_party");
-    casualPartyEl.setAttribute("name", "no-bake-input");
+    casualPartyEl.setAttribute("name", "food-input");
 
     let casualPartyLabelEl = document.createElement("input");
-    casualPartyLabelEl.setAttribute("for", "no-bake-input");
+    casualPartyLabelEl.setAttribute("for", "casual-party-input");
     casualPartyLabelEl.textContent = " I'm throwing a casual party!"
    
     foodQuizOption7El.appendChild(casualPartyEl);
     foodQuizOption7El.appendChild(casualPartyLabelEl);
 
 // when the user clicks "Yes, Feed Me" their choice will be passed to the fetchRecipe function   
-    document.getElementById("#food-modal-confirmation").addEventListener("submit", fetchRecipe());
+    document.getElementById("food-modal-confirmation").addEventListener("click", fetchRecipe);
     }
 
 //function to fetch movie data
