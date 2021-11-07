@@ -35,8 +35,8 @@ float: right;
 }
 
 #start-button {
-
-
+    
+     left: 40%;
     justify-content: center;
 }
 /* styling the modal begins */
