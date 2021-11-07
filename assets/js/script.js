@@ -16,114 +16,6 @@ let activateErrorModal = function() {
     document.getElementById("error-modal").classList.add("is-active");
 }
 
-// generates html elements needed to select what kind of food the user wants
-let foodQuiz = function() {
-    let foodQuizHeader = document.createElement("h1");
-    foodQuizHeader.textContent = "What are you in the mood for tonight?"
-    foodModal.appendChild(foodQuizHeader);
-
-    let comfortFoodEl = document.createElement("input");
-    comfortFoodEl.setAttribute("type", "radio");
-    comfortFoodEl.setAttribute("id", "comfort-food-input");
-    comfortFoodEl.setAttribute("value", "comfort_food");
-    comfortFoodEl.setAttribute("name", "comfort-food-input");
-
-    let comfortFoodLabelEl = document.createElement("label");
-    comfortFoodLabelEl.setAttribute("for", "comfort-food-input");
-    comfortFoodLabelEl.textContent = " Comfort food!"
-
-    foodQuizHeader.appendChild(comfortFoodEl);
-    foodQuizHeader.appendChild(comfortFoodLabelEl);
-
-    let dateNightEl = document.createElement("input");
-    dateNightEl.setAttribute("type", "radio");
-    dateNightEl.setAttribute("id", "date-night-input");
-    dateNightEl.setAttribute("value", "date_night");
-    dateNightEl.setAttribute("name", "date-night-input");
-
-    let dateNightLabelEl = document.createElement("label");
-    dateNightLabelEl.setAttribute("for", "date-night-input");
-    dateNightLabelEl.textContent = " Something for date night!"
-
-    comfortFoodEl.appendChild(dateNightEl);
-    comfortFoodEl.appendChild(dateNightLabelEl);
-
-    let glutenFreeEl = document.createElement("input");
-    glutenFreeEl.setAttribute("type", "radio");
-    glutenFreeEl.setAttribute("id", "gluten-free-input");
-    glutenFreeEl.setAttribute("value", "gluten_free");
-    glutenFreeEl.setAttribute("name", "gluten-free-input");
-
-    let glutenFreeLabelEl = document.createElement("input");
-    glutenFreeLabelEl.setAttribute("for", "gluten-free-input");
-    glutenFreeLabelEl.textContent = " Something gluten-free!"
-
-    dateNightEl.appendChild(glutenFreeEl);
-    dateNightEl.appendChild(glutenFreeLabelEl);
-
-    let vegetarianEl = document.createElement("input");
-    vegetarianEl.setAttribute("type", "radio");
-    vegetarianEl.setAttribute("id", "vegetarian-input");
-    vegetarianEl.setAttribute("value", "vegetarian");
-    vegetarianEl.setAttribute("name", "vegetarian-input");
-
-    let vegetarianLabelEl = document.createElement("input");
-    vegetarianLabelEl.setAttribute("for", "vegetarian-input");
-    vegetarianLabelEl.textContent = " Something vegetarian!"
-
-    glutenFreeEl.appendChild(vegetarianEl);
-    glutenFreeEl.appendChild(vegetarianLabelEl);
-
-    let underThirtyEl = document.createElement("input");
-    underThirtyEl.setAttribute("type", "radio");
-    underThirtyEl.setAttribute("id", "under-thirty-minutes-input");
-    underThirtyEl.setAttribute("value", "under_30_minutes");
-    underThirtyEl.setAttribute("name", "under-thirty-minutes-input");
-
-    let underThirtyLabelEl = document.createElement("input");
-    underThirtyLabelEl.setAttribute("for", "under-thirty-minutes-input");
-    underThirtyLabelEl.textContent = " Something under thirty minutes!"
-
-    vegetarianEl.appendChild(underThirtyEl);
-    vegetarianEl.appendChild(underThirtyLabelEl);
-
-    let easyEl = document.createElement("input");
-    easyEl.setAttribute("type", "radio");
-    easyEl.setAttribute("id", "easy-input");
-    easyEl.setAttribute("value", "easy");
-    easyEl.setAttribute("name", "easy-input");
-
-    let easyLabelEl = document.createElement("input");
-    easyLabelEl.setAttribute("for", "easy-input");
-    easyLabelEl.textContent = " Something easy!"
-
-    underThirtyEl.appendChild(easyEl);
-    underThirtyEl.appendChild(easyLabelEl);
-
-    let casualPartyEl = document.createElement("input");
-    casualPartyEl.setAttribute("type", "radio");
-    casualPartyEl.setAttribute("id", "casual-party-input");
-    casualPartyEl.setAttribute("value", "casual_party");
-    casualPartyEl.setAttribute("name", "no-bake-input");
-
-    let casualPartyLabelEl = document.createElement("input");
-    casualPartyLabelEl.setAttribute("for", "no-bake-input");
-    casualPartyLabelEl.textContent = " I'm throwing a casual party!"
-
-    easyEl.appendChild(casualPartyEl);
-    easyEl.appendChild(casualPartyLabelEl);
-
-    let doneFoodButttonEl = document.createElement("button");
-    doneFoodButttonEl.textContent = "All Set!";
-    quizContainerEl.appendChild(doneFoodButttonEl);
-
-    doneFoodButttonEl.addEventListener("submit", fetchRecipe);
-    }
-
-    //casual_party
-    //ice_cream_social
-
-
 //generates the html elements to ask about what type of movie you want when you click start
 let movieQuiz = function() {
     //remove the welcome page
@@ -254,6 +146,124 @@ let movieQuiz = function() {
     quizContainerEl.appendChild(doneMovieButttonEl);
 };
 
+// generates html elements needed to select what kind of food the user wants
+// activates with interactive food modal
+let foodQuiz = function() {
+    let foodQuizHeader = document.createElement("h1");
+    foodQuizHeader.textContent = "What would you like?"
+    foodModal.appendChild(foodQuizHeader);
+
+// creates the first selectable element for the first food option
+    let comfortFoodEl = document.createElement("input");
+    comfortFoodEl.setAttribute("type", "radio");
+    comfortFoodEl.setAttribute("id", "comfort-food-input");
+    comfortFoodEl.setAttribute("value", "comfort_food");
+    comfortFoodEl.setAttribute("name", "comfort-food-input");
+
+    let comfortFoodLabelEl = document.createElement("label");
+    comfortFoodLabelEl.setAttribute("for", "comfort-food-input");
+    comfortFoodLabelEl.textContent = " Comfort food!"
+
+// appends to h1 element inside food modal
+    foodQuizHeader.appendChild(comfortFoodEl);
+    foodQuizHeader.appendChild(comfortFoodLabelEl);
+
+    let dateNightEl = document.createElement("input");
+    dateNightEl.setAttribute("type", "radio");
+    dateNightEl.setAttribute("id", "date-night-input");
+    dateNightEl.setAttribute("value", "date_night");
+    dateNightEl.setAttribute("name", "date-night-input");
+
+    let dateNightLabelEl = document.createElement("label");
+    dateNightLabelEl.setAttribute("for", "date-night-input");
+    dateNightLabelEl.textContent = " Something for date night!"
+// appends to the previous food option
+    comfortFoodEl.appendChild(dateNightEl);
+    comfortFoodEl.appendChild(dateNightLabelEl);
+
+// creates the second selectable food option    
+    let glutenFreeEl = document.createElement("input");
+    glutenFreeEl.setAttribute("type", "radio");
+    glutenFreeEl.setAttribute("id", "gluten-free-input");
+    glutenFreeEl.setAttribute("value", "gluten_free");
+    glutenFreeEl.setAttribute("name", "gluten-free-input");
+
+    let glutenFreeLabelEl = document.createElement("input");
+    glutenFreeLabelEl.setAttribute("for", "gluten-free-input");
+    glutenFreeLabelEl.textContent = " Something gluten-free!"
+
+// appends to previous food option
+    dateNightEl.appendChild(glutenFreeEl);
+    dateNightEl.appendChild(glutenFreeLabelEl);
+
+// creates third selectable food option
+    let vegetarianEl = document.createElement("input");
+    vegetarianEl.setAttribute("type", "radio");
+    vegetarianEl.setAttribute("id", "vegetarian-input");
+    vegetarianEl.setAttribute("value", "vegetarian");
+    vegetarianEl.setAttribute("name", "vegetarian-input");
+
+    let vegetarianLabelEl = document.createElement("input");
+    vegetarianLabelEl.setAttribute("for", "vegetarian-input");
+    vegetarianLabelEl.textContent = " Something vegetarian!"
+
+// appends to the previous food option    
+    glutenFreeEl.appendChild(vegetarianEl);
+    glutenFreeEl.appendChild(vegetarianLabelEl);
+
+// creates fourth selectable food option
+    let underThirtyEl = document.createElement("input");
+    underThirtyEl.setAttribute("type", "radio");
+    underThirtyEl.setAttribute("id", "under-thirty-minutes-input");
+    underThirtyEl.setAttribute("value", "under_30_minutes");
+    underThirtyEl.setAttribute("name", "under-thirty-minutes-input");
+    
+    let underThirtyLabelEl = document.createElement("input");
+    underThirtyLabelEl.setAttribute("for", "under-thirty-minutes-input");
+    underThirtyLabelEl.textContent = " Something under thirty minutes!"
+
+//appends to the previous food option    
+    vegetarianEl.appendChild(underThirtyEl);
+    vegetarianEl.appendChild(underThirtyLabelEl);
+
+// creates fifth selectable food option    
+    let easyEl = document.createElement("input");
+    easyEl.setAttribute("type", "radio");
+    easyEl.setAttribute("id", "easy-input");
+    easyEl.setAttribute("value", "easy");
+    easyEl.setAttribute("name", "easy-input");
+
+    let easyLabelEl = document.createElement("input");
+    easyLabelEl.setAttribute("for", "easy-input");
+    easyLabelEl.textContent = " Something easy!"
+
+// appends to the previous food option
+    underThirtyEl.appendChild(easyEl);
+    underThirtyEl.appendChild(easyLabelEl);
+
+// creates sixth selectable food option    
+    let casualPartyEl = document.createElement("input");
+    casualPartyEl.setAttribute("type", "radio");
+    casualPartyEl.setAttribute("id", "casual-party-input");
+    casualPartyEl.setAttribute("value", "casual_party");
+    casualPartyEl.setAttribute("name", "no-bake-input");
+
+    let casualPartyLabelEl = document.createElement("input");
+    casualPartyLabelEl.setAttribute("for", "no-bake-input");
+    casualPartyLabelEl.textContent = " I'm throwing a casual party!"
+
+// appends to the previous food option    
+    easyEl.appendChild(casualPartyEl);
+    easyEl.appendChild(casualPartyLabelEl);
+
+// creates button to submit choice and pass it to the fetchRecipe function   
+
+    let doneFoodButttonEl = document.createElement("button");
+    doneFoodButttonEl.textContent = "All Set!";
+    quizContainerEl.appendChild(doneFoodButttonEl);
+
+    doneFoodButttonEl.addEventListener("submit", fetchRecipe());
+    }
 
 //function to fetch movie data
 let fetchMovie = function() {
@@ -277,9 +287,10 @@ let fetchMovie = function() {
 };
 
 //function to fetch recipes
-// let tagSelection = document.querySelector('input[name=food-input]:checked').value;
 let fetchRecipe = function() {
+    // find the selected radio button
     let selectedTag = document.querySelector('input[name=food-input]:checked').value;
+    // fetches the corresponding data
     fetch("https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags" + selectedTag, {
         "method": "GET",
         "headers": {
