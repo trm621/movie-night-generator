@@ -61,29 +61,73 @@ let foodQuiz = function() {
     dateNightEl.appendChild(glutenFreeEl);
     dateNightEl.appendChild(glutenFreeLabelEl);
 
-    let noBakeEl = document.createElement("input");
-    noBakeEl.setAttribute("type", "radio");
-    noBakeEl.setAttribute("id", "no-bake-input");
-    noBakeEl.setAttribute("value", "no_bake_desserts");
-    noBakeEl.setAttribute("name", "no-bake-input");
+    let vegetarianEl = document.createElement("input");
+    vegetarianEl.setAttribute("type", "radio");
+    vegetarianEl.setAttribute("id", "vegetarian-input");
+    vegetarianEl.setAttribute("value", "vegetarian");
+    vegetarianEl.setAttribute("name", "vegetarian-input");
 
-    let noBakeLabelEl = document.createElement("input");
-    noBakeLabelEl.setAttribute("for", "no-bake-input");
-    noBakeLabelEl.textContent = " No bake desserts!"
+    let vegetarianLabelEl = document.createElement("input");
+    vegetarianLabelEl.setAttribute("for", "vegetarian-input");
+    vegetarianLabelEl.textContent = " Something vegetarian!"
 
-    glutenFreeEl.appendChild(noBakeEl);
-    glutenFreeEl.appendChild(noBakeLabelEl);
+    glutenFreeEl.appendChild(vegetarianEl);
+    glutenFreeEl.appendChild(vegetarianLabelEl);
+
+    let underThirtyEl = document.createElement("input");
+    underThirtyEl.setAttribute("type", "radio");
+    underThirtyEl.setAttribute("id", "under-thirty-minutes-input");
+    underThirtyEl.setAttribute("value", "under_30_minutes");
+    underThirtyEl.setAttribute("name", "under-thirty-minutes-input");
+
+    let underThirtyEl = document.createElement("input");
+    underThirtyLabelEl.setAttribute("for", "under-thirty-minutes-input");
+    underThirtyLabelEl.textContent = " Something under thirty minutes!"
+
+    vegetarianEl.appendChild(underThirtyEl);
+    vegetarianEl.appendChild(underThirtyLabelEl);
+
+    // let noBakeEl = document.createElement("input");
+    // noBakeEl.setAttribute("type", "radio");
+    // noBakeEl.setAttribute("id", "no-bake-input");
+    // noBakeEl.setAttribute("value", "no_bake_desserts");
+    // noBakeEl.setAttribute("name", "no-bake-input");
+
+    // let noBakeLabelEl = document.createElement("input");
+    // noBakeLabelEl.setAttribute("for", "no-bake-input");
+    // noBakeLabelEl.textContent = " No bake desserts!"
+
+    // glutenFreeEl.appendChild(noBakeEl);
+    // glutenFreeEl.appendChild(noBakeLabelEl);
+
+    // let noBakeEl = document.createElement("input");
+    // noBakeEl.setAttribute("type", "radio");
+    // noBakeEl.setAttribute("id", "no-bake-input");
+    // noBakeEl.setAttribute("value", "no_bake_desserts");
+    // noBakeEl.setAttribute("name", "no-bake-input");
+
+    // let noBakeLabelEl = document.createElement("input");
+    // noBakeLabelEl.setAttribute("for", "no-bake-input");
+    // noBakeLabelEl.textContent = " No bake desserts!"
+
+    // glutenFreeEl.appendChild(noBakeEl);
+    // glutenFreeEl.appendChild(noBakeLabelEl);
 
 
+    let doneFoodButttonEl = document.createElement("button");
+    doneFoodButttonEl.textContent = "All Set!";
+    quizContainerEl.appendChild(doneFoodButttonEl);
 
-    //no_bake_desserts
-    //vegetarian
+    doneFoodButttonEl.addEventListener("submit", fetchRecipe);
+        
+    }
+
     //vegan
     //under_30_minutes
     //casual_party
     //ice_cream_social
     //easy
-}
+
 //generates the html elements to ask about what type of movie you want when you click start
 let movieQuiz = function() {
     //remove the welcome page
