@@ -1,6 +1,11 @@
 /* styling the main page begins */
 
-main {
+body {
+
+    font-family:'Roboto', sans-serif;
+}
+
+.welcome-page {
 background-color: rgb(31, 17, 5);
 
 }
@@ -61,4 +66,12 @@ background-color: rgb(31, 17, 5);
 .modal-card-title {
     justify-content: center;
     font-weight:bolder;
+}
+/* styling the movie quiz*/
+
+.container {
+margin: 300px 300px;
+padding: 50px;
+background-color:  rgb(31, 17, 5); ;
+border-radius: 8px;
 }

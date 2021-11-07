@@ -24,6 +24,7 @@ let movieQuiz = function() {
     //create div to put elements in and append to page
     let quizContainerEl = document.createElement("div");
     quizContainerEl.setAttribute("id","quiz-container");
+    quizContainerEl.setAttribute("class", "container");
     mainPage.appendChild(quizContainerEl);
 
     //create header
