@@ -16,7 +16,7 @@ let activateErrorModal = function() {
     document.getElementById("error-modal").classList.add("is-active");
 }
 
-// generates html elements needed to select a meal
+// generates html elements needed to select what kind of food the user wants
 let foodQuiz = function() {
     let foodQuizHeader = document.createElement("h1");
     foodQuizHeader.textContent = "What are you in the mood for tonight?"
@@ -80,53 +80,49 @@ let foodQuiz = function() {
     underThirtyEl.setAttribute("value", "under_30_minutes");
     underThirtyEl.setAttribute("name", "under-thirty-minutes-input");
 
-    let underThirtyEl = document.createElement("input");
+    let underThirtyLabelEl = document.createElement("input");
     underThirtyLabelEl.setAttribute("for", "under-thirty-minutes-input");
     underThirtyLabelEl.textContent = " Something under thirty minutes!"
 
     vegetarianEl.appendChild(underThirtyEl);
     vegetarianEl.appendChild(underThirtyLabelEl);
 
-    // let noBakeEl = document.createElement("input");
-    // noBakeEl.setAttribute("type", "radio");
-    // noBakeEl.setAttribute("id", "no-bake-input");
-    // noBakeEl.setAttribute("value", "no_bake_desserts");
-    // noBakeEl.setAttribute("name", "no-bake-input");
+    let easyEl = document.createElement("input");
+    easyEl.setAttribute("type", "radio");
+    easyEl.setAttribute("id", "easy-input");
+    easyEl.setAttribute("value", "easy");
+    easyEl.setAttribute("name", "easy-input");
 
-    // let noBakeLabelEl = document.createElement("input");
-    // noBakeLabelEl.setAttribute("for", "no-bake-input");
-    // noBakeLabelEl.textContent = " No bake desserts!"
+    let easyLabelEl = document.createElement("input");
+    easyLabelEl.setAttribute("for", "easy-input");
+    easyLabelEl.textContent = " Something easy!"
 
-    // glutenFreeEl.appendChild(noBakeEl);
-    // glutenFreeEl.appendChild(noBakeLabelEl);
+    underThirtyEl.appendChild(easyEl);
+    underThirtyEl.appendChild(easyLabelEl);
 
-    // let noBakeEl = document.createElement("input");
-    // noBakeEl.setAttribute("type", "radio");
-    // noBakeEl.setAttribute("id", "no-bake-input");
-    // noBakeEl.setAttribute("value", "no_bake_desserts");
-    // noBakeEl.setAttribute("name", "no-bake-input");
+    let casualPartyEl = document.createElement("input");
+    casualPartyEl.setAttribute("type", "radio");
+    casualPartyEl.setAttribute("id", "casual-party-input");
+    casualPartyEl.setAttribute("value", "casual_party");
+    casualPartyEl.setAttribute("name", "no-bake-input");
 
-    // let noBakeLabelEl = document.createElement("input");
-    // noBakeLabelEl.setAttribute("for", "no-bake-input");
-    // noBakeLabelEl.textContent = " No bake desserts!"
+    let casualPartyLabelEl = document.createElement("input");
+    casualPartyLabelEl.setAttribute("for", "no-bake-input");
+    casualPartyLabelEl.textContent = " I'm throwing a casual party!"
 
-    // glutenFreeEl.appendChild(noBakeEl);
-    // glutenFreeEl.appendChild(noBakeLabelEl);
-
+    easyEl.appendChild(casualPartyEl);
+    easyEl.appendChild(casualPartyLabelEl);
 
     let doneFoodButttonEl = document.createElement("button");
     doneFoodButttonEl.textContent = "All Set!";
     quizContainerEl.appendChild(doneFoodButttonEl);
 
     doneFoodButttonEl.addEventListener("submit", fetchRecipe);
-        
     }
 
-    //vegan
-    //under_30_minutes
     //casual_party
     //ice_cream_social
-    //easy
+
 
 //generates the html elements to ask about what type of movie you want when you click start
 let movieQuiz = function() {
