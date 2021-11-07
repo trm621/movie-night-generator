@@ -204,7 +204,7 @@ let foodQuizOption3El = document.createElement("div");
     glutenFreeEl.setAttribute("value", "gluten_free");
     glutenFreeEl.setAttribute("name", "food-input");
 
-    let glutenFreeLabelEl = document.createElement("input");
+    let glutenFreeLabelEl = document.createElement("label");
     glutenFreeLabelEl.setAttribute("for", "gluten-free-input");
     glutenFreeLabelEl.textContent = " Something gluten-free!"
 
@@ -221,7 +221,7 @@ let foodQuizOption4El = document.createElement("div");
     vegetarianEl.setAttribute("value", "vegetarian");
     vegetarianEl.setAttribute("name", "food-input");
 
-    let vegetarianLabelEl = document.createElement("input");
+    let vegetarianLabelEl = document.createElement("label");
     vegetarianLabelEl.setAttribute("for", "vegetarian-input");
     vegetarianLabelEl.textContent = " Something vegetarian!"
   
@@ -238,7 +238,7 @@ let foodQuizOption5El = document.createElement("div");
     underThirtyEl.setAttribute("value", "under_30_minutes");
     underThirtyEl.setAttribute("name", "food-input");
     
-    let underThirtyLabelEl = document.createElement("input");
+    let underThirtyLabelEl = document.createElement("label");
     underThirtyLabelEl.setAttribute("for", "under-thirty-minutes-input");
     underThirtyLabelEl.textContent = " Something under thirty minutes!"
 
@@ -255,7 +255,7 @@ let foodQuizOption6El = document.createElement("div");
     easyEl.setAttribute("value", "easy");
     easyEl.setAttribute("name", "food-input");
 
-    let easyLabelEl = document.createElement("input");
+    let easyLabelEl = document.createElement("label");
     easyLabelEl.setAttribute("for", "easy-input");
     easyLabelEl.textContent = " Something easy!"
 
@@ -272,7 +272,7 @@ let foodQuizOption7El = document.createElement("div");
     casualPartyEl.setAttribute("value", "casual_party");
     casualPartyEl.setAttribute("name", "food-input");
 
-    let casualPartyLabelEl = document.createElement("input");
+    let casualPartyLabelEl = document.createElement("label");
     casualPartyLabelEl.setAttribute("for", "casual-party-input");
     casualPartyLabelEl.textContent = " I'm throwing a casual party!"
    
@@ -308,8 +308,9 @@ let fetchMovie = function() {
 let fetchRecipe = function() {
     // find the selected radio button
     let selectedTag = document.querySelector('input[name=food-input]:checked').value;
+    let tastyURL = "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=" + selectedTag;
     // fetches the corresponding data
-    fetch("https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags" + selectedTag, {
+    fetch(tastyURL, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tasty.p.rapidapi.com",
