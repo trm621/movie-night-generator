@@ -1,5 +1,6 @@
 //global variable for the "main" element
 let mainPage = document.getElementById('main-page');
+let foodModal = document.getElementById("#food-modal")
 
 //function to pull up movie confirm and ask if you want to add recipe
 let activateMovieModal = function() {
@@ -15,10 +16,74 @@ let activateErrorModal = function() {
     document.getElementById("error-modal").classList.add("is-active");
 }
 
+// generates html elements needed to select a meal
 let foodQuiz = function() {
-    
-}
+    let foodQuizHeader = document.createElement("h1");
+    foodQuizHeader.textContent = "What are you in the mood for tonight?"
+    foodModal.appendChild(foodQuizHeader);
 
+    let comfortFoodEl = document.createElement("input");
+    comfortFoodEl.setAttribute("type", "radio");
+    comfortFoodEl.setAttribute("id", "comfort-food-input");
+    comfortFoodEl.setAttribute("value", "comfort_food");
+    comfortFoodEl.setAttribute("name", "comfort-food-input");
+
+    let comfortFoodLabelEl = document.createElement("label");
+    comfortFoodLabelEl.setAttribute("for", "comfort-food-input");
+    comfortFoodLabelEl.textContent = " Comfort food!"
+
+    foodQuizHeader.appendChild(comfortFoodEl);
+    foodQuizHeader.appendChild(comfortFoodLabelEl);
+
+    let dateNightEl = document.createElement("input");
+    dateNightEl.setAttribute("type", "radio");
+    dateNightEl.setAttribute("id", "date-night-input");
+    dateNightEl.setAttribute("value", "date_night");
+    dateNightEl.setAttribute("name", "date-night-input");
+
+    let dateNightLabelEl = document.createElement("label");
+    dateNightLabelEl.setAttribute("for", "date-night-input");
+    dateNightLabelEl.textContent = " Something for date night!"
+
+    comfortFoodEl.appendChild(dateNightEl);
+    comfortFoodEl.appendChild(dateNightLabelEl);
+
+    let glutenFreeEl = document.createElement("input");
+    glutenFreeEl.setAttribute("type", "radio");
+    glutenFreeEl.setAttribute("id", "gluten-free-input");
+    glutenFreeEl.setAttribute("value", "gluten_free");
+    glutenFreeEl.setAttribute("name", "gluten-free-input");
+
+    let glutenFreeLabelEl = document.createElement("input");
+    glutenFreeLabelEl.setAttribute("for", "gluten-free-input");
+    glutenFreeLabelEl.textContent = " Something gluten-free!"
+
+    dateNightEl.appendChild(glutenFreeEl);
+    dateNightEl.appendChild(glutenFreeLabelEl);
+
+    let noBakeEl = document.createElement("input");
+    noBakeEl.setAttribute("type", "radio");
+    noBakeEl.setAttribute("id", "no-bake-input");
+    noBakeEl.setAttribute("value", "no_bake_desserts");
+    noBakeEl.setAttribute("name", "no-bake-input");
+
+    let noBakeLabelEl = document.createElement("input");
+    noBakeLabelEl.setAttribute("for", "no-bake-input");
+    noBakeLabelEl.textContent = " No bake desserts!"
+
+    glutenFreeEl.appendChild(noBakeEl);
+    glutenFreeEl.appendChild(noBakeLabelEl);
+
+
+
+    //no_bake_desserts
+    //vegetarian
+    //vegan
+    //under_30_minutes
+    //casual_party
+    //ice_cream_social
+    //easy
+}
 //generates the html elements to ask about what type of movie you want when you click start
 let movieQuiz = function() {
     //remove the welcome page
