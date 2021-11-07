@@ -15,6 +15,10 @@ let activateErrorModal = function() {
     document.getElementById("error-modal").classList.add("is-active");
 }
 
+let foodQuiz = function() {
+    
+}
+
 //generates the html elements to ask about what type of movie you want when you click start
 let movieQuiz = function() {
     //remove the welcome page
@@ -143,12 +147,8 @@ let movieQuiz = function() {
     let doneMovieButttonEl = document.createElement("button");
     doneMovieButttonEl.textContent = "All Set!";
     quizContainerEl.appendChild(doneMovieButttonEl);
-    doneMovieButttonEl.addEventListener("click", openFoodModal())
 };
 
-var openFoodModal = function() {
-    
-}
 
 //function to fetch movie data
 let fetchMovie = function() {
@@ -172,8 +172,10 @@ let fetchMovie = function() {
 };
 
 //function to fetch recipes
+// let tagSelection = document.querySelector('input[name=food-input]:checked').value;
 let fetchRecipe = function() {
-    fetch("https://tasty.p.rapidapi.com/recipes/list?", {
+    let selectedTag = document.querySelector('input[name=food-input]:checked').value;
+    fetch("https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags" + selectedTag, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tasty.p.rapidapi.com",
@@ -181,7 +183,9 @@ let fetchRecipe = function() {
         }
     })
     .then(response => {
-        console.log(response);
+        response.json().then(function(data) {
+            console.log(data);
+        })
     })
     .catch(err => {
         console.error(err);
@@ -190,5 +194,3 @@ let fetchRecipe = function() {
 
 //event listener to create quiz form when "get started!" is pressed
 document.getElementById("start-button").addEventListener("click", movieQuiz);
-
-fetchRecipe();
