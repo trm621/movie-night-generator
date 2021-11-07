@@ -256,13 +256,8 @@ let foodQuiz = function() {
     easyEl.appendChild(casualPartyEl);
     easyEl.appendChild(casualPartyLabelEl);
 
-// creates button to submit choice and pass it to the fetchRecipe function   
-
-    let doneFoodButttonEl = document.createElement("button");
-    doneFoodButttonEl.textContent = "All Set!";
-    quizContainerEl.appendChild(doneFoodButttonEl);
-
-    doneFoodButttonEl.addEventListener("submit", fetchRecipe());
+// when the user clicks "Yes, Feed Me" their choice will be passed to the fetchRecipe function   
+    document.querySelector("#food-modal-confirmation").addEventListener("submit", fetchRecipe());
     }
 
 //function to fetch movie data
