@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html id='new-body' lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOVIE TIME</title>
+    <title>Binge Buddy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
 
 <!-- welcome page -->
-<main id="main-page">
+<main id="main-page" class="columns center-all">
 
-    <div id= "welcome-page" class="welcome-page">
-        <h1 class="is-size-1 is-uppercase has-text-weight-bold">Welcome to Movie Night Generator!</h1>
-        <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="img2 image is-64x64"/>
-         <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="img2 image is-64x64"/>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore a incidunt, delectus sed ratione, optio magni quibusdam eligendi voluptas nesciunt consequuntur! Assumenda, dolorum fugit harum quidem suscipit est accusamus.</p>
+    <div id= "welcome-page" class="column is-three-quarters trans-bg">
+        <h1 class="is-size-1 is-uppercase has-text-weight-bold">Welcome to Binge Buddy!</h1>
+        <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="left-ticket image is-64x64"/>
+        <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="right-ticket image is-64x64"/>
+        <p>Don't know what to watch? Tired of scrolling mindlessly through all your streaming platforms and TV channels? Let Binge Buddy do the work for you. Pick what you're in the mood for and let us cut out the decision making for you. We even got you covered for food. Tell us what you want, skip the arguing, and binge.</p>
         <button id="start-button" class=" button is-warning">Click Here to Get Started!</button>
     </div>
     
@@ -28,17 +28,17 @@
 
 <!--error modal start, this needs to be added to .catch-->
 
-    <div id="error-modal" class="modal ">
+    <div id="error-modal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
             <span class="modal-card-title icon-text has-text-warning">
               <span class="icon ">
                 <i class="fas fa-home">
-                  <img src="/assets/images/sad.png">
+                  <img src="./assets/images/sad.png">
                 </i>
               </span>
-              <span class="has-text-warning">...Uh Oh...</span>
+              <span class="has-text-warning">... Uh-Oh...</span>
             </span>
           </header>
           <section class="modal-card-body">
@@ -68,7 +68,7 @@
         <button class="delete" aria-label="close"></button>
       </header>
       <!----modal header end-->
-      <section id="modal-card-body" class="modal-card-body">
+      <section id="food-modal-body" class="modal-card-body is-clipped">
         
       
         <break></break>
@@ -84,7 +84,7 @@
   </div>
 
     
-<script src="assets/js/script.js"></script>
+<script src="./assets/js/script.js"></script>
 
 </body>
 </html>

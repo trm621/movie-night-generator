@@ -1,7 +1,4 @@
-//global variable for the html element 
-let newBody = document.getElementById('new-body');
 //global variable for the "main" element
-
 let mainPage = document.getElementById('main-page');
 
 //function to pull up movie confirm and ask if you want to add recipe
@@ -20,15 +17,15 @@ let activateErrorModal = function() {
 
 //generates the html elements to ask about what type of movie you want when you click start
 let movieQuiz = function() {
-    //remove the welcome page
+    //remove the welcome page and prep screen
     let welcomePage = document.getElementById("welcome-page");
     welcomePage.remove();
-   //add new background style class to the html background after you click start button
-    newBody.setAttribute("class", "new-background");
+    mainPage.classList.remove('center-all');
     //create div to put elements in and append to page
     let quizContainerEl = document.createElement("div");
     quizContainerEl.setAttribute("id","quiz-container");
     quizContainerEl.setAttribute("class", "container");
+    quizContainerEl.classList.add("column","is-half", "is-three-quarters-mobile", "center-text", "trans-bg");
     mainPage.appendChild(quizContainerEl);
 
     //create header
@@ -38,6 +35,7 @@ let movieQuiz = function() {
 
     //create div for option 1
     let quizOption1El = document.createElement("div");
+    quizOption1El.setAttribute("class","option");
     quizContainerEl.appendChild(quizOption1El);
 
     //create form option 1 and label (comedy) then append
@@ -56,6 +54,7 @@ let movieQuiz = function() {
 
     //create div for option 2
     let quizOption2El = document.createElement("div");
+    quizOption2El.setAttribute("class","option");
     quizContainerEl.appendChild(quizOption2El);
 
     //create form option 2 and label (family) then append
@@ -74,6 +73,7 @@ let movieQuiz = function() {
 
     //create div for option 3
     let quizOption3El = document.createElement("div");
+    quizOption3El.setAttribute("class","option");
     quizContainerEl.appendChild(quizOption3El);
 
     //option 3(action)
@@ -92,6 +92,7 @@ let movieQuiz = function() {
 
     //create div for option 4
     let quizOption4El = document.createElement("div");
+    quizOption4El.setAttribute("class","option");
     quizContainerEl.appendChild(quizOption4El);
 
     //option 4(horror)
@@ -110,6 +111,7 @@ let movieQuiz = function() {
 
     //create div for option 5
     let quizOption5El = document.createElement("div");
+    quizOption5El.setAttribute("class","option");
     quizContainerEl.appendChild(quizOption5El);
 
     //option 5(romance)
@@ -128,6 +130,7 @@ let movieQuiz = function() {
 
     //create div for option 6
     let quizOption6El = document.createElement("div");
+    quizOption6El.setAttribute("class","option");
     quizContainerEl.appendChild(quizOption6El);
 
     //option 6(dramatic)
@@ -154,7 +157,7 @@ let movieQuiz = function() {
 // generates html elements needed to select what kind of food the user wants
 // activates with interactive food modal
 let foodQuiz = function() {
-let foodModal = document.getElementById("modal-card-body")
+let foodModal = document.getElementById("food-modal-body");
 
 // create container to hold food quiz
     let foodContainerEl = document.createElement("div");
@@ -178,7 +181,7 @@ let foodQuizOption1El = document.createElement("div");
 
     let comfortFoodLabelEl = document.createElement("label");
     comfortFoodLabelEl.setAttribute("for", "comfort-food-input");
-    comfortFoodLabelEl.textContent = " Comfort food!"
+    comfortFoodLabelEl.textContent = " Comfort food!";
 
     foodQuizOption1El.appendChild(comfortFoodEl);
     foodQuizOption1El.appendChild(comfortFoodLabelEl);
@@ -195,7 +198,7 @@ let foodQuizOption2El = document.createElement("div");
 
     let dateNightLabelEl = document.createElement("label");
     dateNightLabelEl.setAttribute("for", "date-night-input");
-    dateNightLabelEl.textContent = " Something for date night!"
+    dateNightLabelEl.textContent = " Something for date night!";
 
     foodQuizOption2El.appendChild(dateNightEl);
     foodQuizOption2El.appendChild(dateNightLabelEl);
@@ -212,7 +215,7 @@ let foodQuizOption3El = document.createElement("div");
 
     let glutenFreeLabelEl = document.createElement("label");
     glutenFreeLabelEl.setAttribute("for", "gluten-free-input");
-    glutenFreeLabelEl.textContent = " Something gluten-free!"
+    glutenFreeLabelEl.textContent = " Something gluten-free!";
 
     foodQuizOption3El.appendChild(glutenFreeEl);
     foodQuizOption3El.appendChild(glutenFreeLabelEl);
@@ -229,7 +232,7 @@ let foodQuizOption4El = document.createElement("div");
 
     let vegetarianLabelEl = document.createElement("label");
     vegetarianLabelEl.setAttribute("for", "vegetarian-input");
-    vegetarianLabelEl.textContent = " Something vegetarian!"
+    vegetarianLabelEl.textContent = " Something vegetarian!";
   
     foodQuizOption4El.appendChild(vegetarianEl);
     foodQuizOption4El.appendChild(vegetarianLabelEl);
@@ -246,7 +249,7 @@ let foodQuizOption5El = document.createElement("div");
     
     let underThirtyLabelEl = document.createElement("label");
     underThirtyLabelEl.setAttribute("for", "under-thirty-minutes-input");
-    underThirtyLabelEl.textContent = " Something under thirty minutes!"
+    underThirtyLabelEl.textContent = " Something under thirty minutes!";
 
     foodQuizOption5El.appendChild(underThirtyEl);
     foodQuizOption5El.appendChild(underThirtyLabelEl);
@@ -263,7 +266,7 @@ let foodQuizOption6El = document.createElement("div");
 
     let easyLabelEl = document.createElement("label");
     easyLabelEl.setAttribute("for", "easy-input");
-    easyLabelEl.textContent = " Something easy!"
+    easyLabelEl.textContent = " Something easy!";
 
     foodQuizOption6El.appendChild(easyEl);
     foodQuizOption6El.appendChild(easyLabelEl);
@@ -280,7 +283,7 @@ let foodQuizOption7El = document.createElement("div");
 
     let casualPartyLabelEl = document.createElement("label");
     casualPartyLabelEl.setAttribute("for", "casual-party-input");
-    casualPartyLabelEl.textContent = " I'm throwing a casual party!"
+    casualPartyLabelEl.textContent = " I'm throwing a casual party!";
    
     foodQuizOption7El.appendChild(casualPartyEl);
     foodQuizOption7El.appendChild(casualPartyLabelEl);
