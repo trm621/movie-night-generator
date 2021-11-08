@@ -1,17 +1,19 @@
+html {
+    background-color: rgb(31, 17, 5);
+}
 /* styling the main page begins */
 
 body {
-
     font-family:'Roboto', sans-serif;
 }
 #main-page {
 
 justify-content: center;
+text-align: center;
 
 }
 .welcome-page {
-background-color: rgb(31, 17, 5);
-
+    background-color: rgb(31, 17, 5);
 }
 
 main h1, p   {
@@ -21,24 +23,17 @@ color: white;
 
 }
 
-.img1{
+.left-ticket {
 
 float: left;
 
 
 }
 
-.img2 {
-
+.right-ticket {
 float: right;
-
 }
 
-#start-button {
-    
-     left: 40%;
-    justify-content: center;
-}
 /* styling the modal begins */
 .modal-card-head {
 
@@ -78,13 +73,13 @@ background-color: rgb(31, 17, 5);
 }
 
 .container {
-margin: 300px 500px;
+margin: 20vh 30vh 5vh 30vh;
 padding: 50px 50px;
 background-color: white;
 border-radius: 8px;
 justify-content: center;
 color: rgb(31, 17, 5); 
-border-image: url('/assets/images/popcorn.png') round;
+border-image: url('./assets/images/popcorn.png') round;
 border-image-slice:30; 
 border-image-width: 30px 48px; 
 font-weight: bold;
@@ -101,3 +96,4 @@ font-weight: bold;
 
 }
 
+/*utility styles*/

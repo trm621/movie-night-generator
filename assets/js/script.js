@@ -1,7 +1,4 @@
-//global variable for the html element 
-let newBody = document.getElementById('new-body');
 //global variable for the "main" element
-
 let mainPage = document.getElementById('main-page');
 
 //function to pull up movie confirm and ask if you want to add recipe
@@ -24,7 +21,7 @@ let movieQuiz = function() {
     let welcomePage = document.getElementById("welcome-page");
     welcomePage.remove();
    //add new background style class to the html background after you click start button
-    newBody.setAttribute("class", "new-background");
+
     //create div to put elements in and append to page
     let quizContainerEl = document.createElement("div");
     quizContainerEl.setAttribute("id","quiz-container");
