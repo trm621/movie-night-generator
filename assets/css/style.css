@@ -1,6 +1,15 @@
 /* styling the main page begins */
 
-main {
+body {
+
+    font-family:'Roboto', sans-serif;
+}
+#main-page {
+
+justify-content: center;
+
+}
+.welcome-page {
 background-color: rgb(31, 17, 5);
 
 }
@@ -26,8 +35,8 @@ float: right;
 }
 
 #start-button {
-
-
+    
+     left: 40%;
     justify-content: center;
 }
 /* styling the modal begins */
@@ -62,3 +71,33 @@ background-color: rgb(31, 17, 5);
     justify-content: center;
     font-weight:bolder;
 }
+/* styling the movie quiz*/
+.new-background {
+
+    background-color: rgb(31, 17, 5); ;
+}
+
+.container {
+margin: 300px 500px;
+padding: 50px 50px;
+background-color: white;
+border-radius: 8px;
+justify-content: center;
+color: rgb(31, 17, 5); 
+border-image: url('/assets/images/popcorn.png') round;
+border-image-slice:30; 
+border-image-width: 30px 48px; 
+font-weight: bold;
+
+}
+/*movie quiz title*/
+
+.container h1 {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bolder;
+    color: rgb(31, 17, 5); 
+    
+
+}
+
