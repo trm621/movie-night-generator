@@ -2,12 +2,12 @@
 let mainPage = document.getElementById('main-page');
 
 //function to pull up movie confirm and ask if you want to add recipe
-let activateMovieModal = function() {
-    document.getElementById('movie-modal').classList.add("is-active");
+let activateFoodModal = function() {
+    document.getElementById('food-modal').classList.add("is-active");
 }
 //closes the 'moive-modal'
-let closeMovieModal = function() {
-    document.getElementById('movie-modal').classList.remove("is-active");
+let closeFoodModal = function() {
+    document.getElementById('food-modal').classList.remove("is-active");
 }
 
 //tell user there's an error
@@ -147,11 +147,23 @@ let movieQuiz = function() {
     quizOption6El.appendChild(dramaInputEl);
     quizOption6El.appendChild(dramaLabelEl);
 
+    //break to space button
+    let formBreak = document.createElement("br");
+    quizContainerEl.appendChild(formBreak);
+
     //finished selecting button
     let doneMovieButttonEl = document.createElement("button");
     doneMovieButttonEl.textContent = "All Set!";
+    doneMovieButttonEl.setAttribute("id","done-movie-button");
     doneMovieButttonEl.setAttribute("class","button is-warning")
     quizContainerEl.appendChild(doneMovieButttonEl);
+
+    //event listener for "All Set" to fetch movie data and pull up food modal
+    document.getElementById("done-movie-button").addEventListener("click", function() {
+    activateFoodModal();
+    foodQuiz();
+
+});
 };
 
 // generates html elements needed to select what kind of food the user wants
@@ -287,10 +299,7 @@ let foodQuizOption7El = document.createElement("div");
    
     foodQuizOption7El.appendChild(casualPartyEl);
     foodQuizOption7El.appendChild(casualPartyLabelEl);
-
-// when the user clicks "Yes, Feed Me" their choice will be passed to the fetchRecipe function   
-    document.getElementById("food-modal-confirmation").addEventListener("click", fetchRecipe);
-    }
+}
 
 //function to fetch movie data
 let fetchMovie = function() {
@@ -298,12 +307,13 @@ let fetchMovie = function() {
     let movieSearchCode = document.querySelector('input[name=movie-input]:checked').value;
     let tmdbURL = "https://api.themoviedb.org/3/discover/movie?api_key=c0ab3fea9a9c982aea8dbffab1e88337&language=en-US&sort_by=popularity.desc&" + movieSearchCode + "&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate";
 
-    console.log(tmdbURL);
     fetch(tmdbURL).then(function(response) {
         //successful request
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data); //here is where the functions that display the data will need to go, for now it's console log :)
+                console.log(data);
+                displayMovie(data);
+                closeFoodModal();
             })
         }
     })
@@ -334,7 +344,63 @@ let fetchRecipe = function() {
     .catch(err => {
         console.error(err);
     });
+};
+
+let goBack = function() {
+    //clear container so you can go back
+    document.getElementById("food-quiz-container").remove();
+
+    //close the modal
+    closeFoodModal();
 }
+
+let displayMovie = function(data) {
+    //remove movie quiz and set up page
+    document.getElementById("quiz-container").remove();
+    mainPage.classList.remove("columns");
+
+    //MATH FOR TOM :(
+
+    //build the container part of the display
+    let contentContainerEl = document.createElement("div");
+    contentContainerEl.setAttribute("id", "content-container");
+    contentContainerEl.setAttribute("class", "columns");
+    mainPage.appendChild(contentContainerEl);
+
+    //build the movie part of the display
+    let movieContainerEl = document.createElement("div");
+    movieContainerEl.setAttribute("id", "movie-container");
+    movieContainerEl.setAttribute("class", "column");
+    movieContainerEl.classList.add("is-half");
+    contentContainerEl.appendChild(movieContainerEl);
+
+    //build the title of the movie
+    let movieTitleEl = document.createElement("h1");
+    movieTitleEl.setAttribute("id", "movie-title");
+    movieTitleEl.textContent = data.results[0].title;
+    movieContainerEl.appendChild(movieTitleEl);
+
+    //build poster
+    let moviePosterEl = document.createElement("img");
+    moviePosterEl.setAttribute("id", "movie-poster");
+    moviePosterEl.setAttribute("src", "https://image.tmdb.org/t/p/original/" + data.results[0].poster_path);
+    movieContainerEl.appendChild(moviePosterEl);
+
+    //build description
+    let movieDescEl = document.createElement("p");
+    movieDescEl.setAttribute("id", "movie-desc");
+    movieDescEl.textContent = data.results[0].overview;
+    movieContainerEl.appendChild(movieDescEl);
+};
 
 //event listener to create quiz form when "get started!" is pressed
 document.getElementById("start-button").addEventListener("click", movieQuiz);
+
+//event listener to "go back" button and for closing the modal
+document.getElementById("food-modal-back").addEventListener("click", goBack);
+
+//event listener to fetch movie and food
+document.getElementById("food-modal-confirmation").addEventListener("click", fetchMovie);
+
+//event listener to fetch only movie
+document.getElementById("food-modal-skip").addEventListener("click", fetchMovie);
