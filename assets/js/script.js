@@ -361,6 +361,13 @@ let displayMovie = function(data) {
     mainPage.classList.remove("columns");
 
     //MATH FOR TOM :(
+    var generatedMovie;
+    let generateNumber = function() {
+        generatedMovie = Math.floor(Math.random()*20);
+        return generatedMovie;
+    }
+
+    generateNumber();
 
     //build the container part of the display
     let contentContainerEl = document.createElement("div");
@@ -378,19 +385,19 @@ let displayMovie = function(data) {
     //build the title of the movie
     let movieTitleEl = document.createElement("h1");
     movieTitleEl.setAttribute("id", "movie-title");
-    movieTitleEl.textContent = data.results[0].title;
+    movieTitleEl.textContent = data.results[generatedMovie].title;
     movieContainerEl.appendChild(movieTitleEl);
 
     //build poster
     let moviePosterEl = document.createElement("img");
     moviePosterEl.setAttribute("id", "movie-poster");
-    moviePosterEl.setAttribute("src", "https://image.tmdb.org/t/p/original/" + data.results[0].poster_path);
+    moviePosterEl.setAttribute("src", "https://image.tmdb.org/t/p/original/" + data.results[generatedMovie].poster_path);
     movieContainerEl.appendChild(moviePosterEl);
 
     //build description
     let movieDescEl = document.createElement("p");
     movieDescEl.setAttribute("id", "movie-desc");
-    movieDescEl.textContent = data.results[0].overview;
+    movieDescEl.textContent = data.results[generatedMovie].overview;
     movieContainerEl.appendChild(movieDescEl);
 };
 
