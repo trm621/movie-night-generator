@@ -339,6 +339,7 @@ let fetchRecipe = function() {
     .then(response => {
         response.json().then(function(data) {
             console.log(data);
+            displayRecipe(data);
         })
     })
     .catch(err => {
@@ -393,6 +394,46 @@ let displayMovie = function(data) {
     movieContainerEl.appendChild(movieDescEl);
 };
 
+let displayRecipe = function(data) {
+    //MATH
+
+    //build the container part of the display
+    let contentContainerEl = document.createElement("div");
+    contentContainerEl.setAttribute("id", "content-container");
+    contentContainerEl.setAttribute("class", "columns");
+    mainPage.appendChild(contentContainerEl);
+
+    //build the recipe part of the display
+    let recipeContainerEl = document.createElement("div");
+    recipeContainerEl.setAttribute("id", "recipe-container");
+    recipeContainerEl.setAttribute("class", "column");
+    recipeContainerEl.classList.add("is-half");
+    contentContainerEl.appendChild(recipeContainerEl);
+
+    //build the title of the recipe
+    let recipeTitleEl = document.createElement("h1");
+    recipeTitleEl.setAttribute("id", "recipe-title");
+    recipeTitleEl.textContent = data.results[0].name;
+    recipeContainerEl.appendChild(recipeTitleEl);
+
+    //build image of recipe
+    let foodPicEl = document.createElement("img");
+    foodPicEl.setAttribute("id", "recipe-picture");
+    foodPicEl.setAttribute("src", data.results[0].thumbnail_url);
+    recipeContainerEl.appendChild(foodPicEl);
+
+    //build description section
+    let foodDescEl = document.createElement("p");
+    foodDescEl.setAttribute("id", "movie-desc");
+    foodDescEl.textContent = data.results[0].description;
+    recipeContainerEl.appendChild(foodDescEl);
+
+    let foodLink = document.createElement("a")
+    foodLink.setAttribute("href", "https://tasty.co/recipe/" + data.results[0].slug);
+    foodLink.innerText = "Click here for recipe!"
+    recipeContainerEl.appendChild(foodLink);
+};
+
 //event listener to create quiz form when "get started!" is pressed
 document.getElementById("start-button").addEventListener("click", movieQuiz);
 
@@ -400,7 +441,11 @@ document.getElementById("start-button").addEventListener("click", movieQuiz);
 document.getElementById("food-modal-back").addEventListener("click", goBack);
 
 //event listener to fetch movie and food
-document.getElementById("food-modal-confirmation").addEventListener("click", fetchMovie);
+document.getElementById("food-modal-confirmation").addEventListener("click", function() {
+    fetchMovie();
+    fetchRecipe();
+}
+);
 
 //event listener to fetch only movie
 document.getElementById("food-modal-skip").addEventListener("click", fetchMovie);
