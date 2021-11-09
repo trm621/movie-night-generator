@@ -378,7 +378,7 @@ let displayMovie = function(data) {
     //build the movie part of the display
     let movieContainerEl = document.createElement("div");
     movieContainerEl.setAttribute("id", "movie-container");
-    movieContainerEl.setAttribute("class", "column");
+    movieContainerEl.setAttribute("class", "column"); 
     movieContainerEl.classList.add("is-half");
     contentContainerEl.appendChild(movieContainerEl);
 
@@ -444,6 +444,7 @@ let displayRecipe = function(data) {
 
     let foodLink = document.createElement("a")
     foodLink.setAttribute("href", "https://tasty.co/recipe/" + data.results[generatedRecipe].slug);
+    foodLink.setAttribute("target", "_blank");
     foodLink.innerText = "Click here for recipe!"
     recipeContainerEl.appendChild(foodLink);
 };
