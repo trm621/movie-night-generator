@@ -411,18 +411,12 @@ let displayRecipe = function(data) {
 
     generateNumber();
 
-    //build the container part of the display
-    let contentContainerEl = document.createElement("div");
-    contentContainerEl.setAttribute("id", "content-container");
-    contentContainerEl.setAttribute("class", "columns");
-    mainPage.appendChild(contentContainerEl);
-
     //build the recipe part of the display
     let recipeContainerEl = document.createElement("div");
     recipeContainerEl.setAttribute("id", "recipe-container");
     recipeContainerEl.setAttribute("class", "column");
     recipeContainerEl.classList.add("is-half");
-    contentContainerEl.appendChild(recipeContainerEl);
+    document.getElementById("content-container").appendChild(recipeContainerEl);
 
     //build the title of the recipe
     let recipeTitleEl = document.createElement("h1");
@@ -439,7 +433,7 @@ let displayRecipe = function(data) {
     //build description section
     let foodDescEl = document.createElement("p");
     foodDescEl.setAttribute("id", "movie-desc");
-    foodDescEl.textContent = data.results[generatedRecipe].description;
+    foodDescEl.innerHTML = data.results[generatedRecipe].description;
     recipeContainerEl.appendChild(foodDescEl);
 
     let foodLink = document.createElement("a")
