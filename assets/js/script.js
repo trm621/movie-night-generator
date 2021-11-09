@@ -396,6 +396,13 @@ let displayMovie = function(data) {
 
 let displayRecipe = function(data) {
     //MATH
+    var generatedRecipe;
+    let generateNumber = function() {
+        generatedRecipe = Math.floor(Math.random()*20);
+        return generatedRecipe
+    }
+
+    generateNumber();
 
     //build the container part of the display
     let contentContainerEl = document.createElement("div");
@@ -413,23 +420,23 @@ let displayRecipe = function(data) {
     //build the title of the recipe
     let recipeTitleEl = document.createElement("h1");
     recipeTitleEl.setAttribute("id", "recipe-title");
-    recipeTitleEl.textContent = data.results[0].name;
+    recipeTitleEl.textContent = data.results[generatedRecipe].name;
     recipeContainerEl.appendChild(recipeTitleEl);
 
     //build image of recipe
     let foodPicEl = document.createElement("img");
     foodPicEl.setAttribute("id", "recipe-picture");
-    foodPicEl.setAttribute("src", data.results[0].thumbnail_url);
+    foodPicEl.setAttribute("src", data.results[generatedRecipe].thumbnail_url);
     recipeContainerEl.appendChild(foodPicEl);
 
     //build description section
     let foodDescEl = document.createElement("p");
     foodDescEl.setAttribute("id", "movie-desc");
-    foodDescEl.textContent = data.results[0].description;
+    foodDescEl.textContent = data.results[generatedRecipe].description;
     recipeContainerEl.appendChild(foodDescEl);
 
     let foodLink = document.createElement("a")
-    foodLink.setAttribute("href", "https://tasty.co/recipe/" + data.results[0].slug);
+    foodLink.setAttribute("href", "https://tasty.co/recipe/" + data.results[generatedRecipe].slug);
     foodLink.innerText = "Click here for recipe!"
     recipeContainerEl.appendChild(foodLink);
 };
