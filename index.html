@@ -52,7 +52,7 @@
       <!--error modal end-->
   
     <div class="modal" id="food-modal">
-    <div class="modal-background"></div>
+    <div class="modal-background" onclick="goBack()"></div>
     <div class="modal-card">
       <!---modal header start-->
       <header class="modal-card-head">
@@ -65,7 +65,7 @@
           </span>
           <span class="has-text-warning">Feeling Hungry?</span>
         </span>
-        <button class="delete" aria-label="close"></button>
+        <button class="delete" aria-label="close" onclick="goBack()"></button>
       </header>
       <!----modal header end-->
       <section id="food-modal-body" class="modal-card-body is-clipped">
@@ -75,9 +75,9 @@
         <p>We can set you up with a recipe to go with your movie!</p>
       </section>
       <footer class="modal-card-foot">
-        <button class=" button is-warning">Wait, No go back!</button>
+        <button id="food-modal-back" class=" button is-warning">Wait, No go back!</button>
         <button id="food-modal-confirmation" class="button is-warning">Yes! Feed me!</button>
-        <button class="button is-warning">Nah, I Only Want a Movie</button>
+        <button id= "food-modal-skip" class="button is-warning">Nah, I Only Want a Movie</button>
         
       </footer>
     </div>
