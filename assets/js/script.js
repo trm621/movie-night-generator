@@ -339,6 +339,7 @@ let fetchRecipe = function() {
     .then(response => {
         response.json().then(function(data) {
             console.log(data);
+            displayRecipe(data);
         })
     })
     .catch(err => {
@@ -360,6 +361,13 @@ let displayMovie = function(data) {
     mainPage.classList.remove("columns");
 
     //MATH FOR TOM :(
+    var generatedMovie;
+    let generateNumber = function() {
+        generatedMovie = Math.floor(Math.random()*20);
+        return generatedMovie;
+    }
+
+    generateNumber();
 
     //build the container part of the display
     let contentContainerEl = document.createElement("div");
@@ -370,27 +378,75 @@ let displayMovie = function(data) {
     //build the movie part of the display
     let movieContainerEl = document.createElement("div");
     movieContainerEl.setAttribute("id", "movie-container");
-    movieContainerEl.setAttribute("class", "column");
+    movieContainerEl.setAttribute("class", "column"); 
     movieContainerEl.classList.add("is-half");
     contentContainerEl.appendChild(movieContainerEl);
 
     //build the title of the movie
     let movieTitleEl = document.createElement("h1");
     movieTitleEl.setAttribute("id", "movie-title");
-    movieTitleEl.textContent = data.results[0].title;
+    movieTitleEl.textContent = data.results[generatedMovie].title;
     movieContainerEl.appendChild(movieTitleEl);
 
     //build poster
     let moviePosterEl = document.createElement("img");
     moviePosterEl.setAttribute("id", "movie-poster");
-    moviePosterEl.setAttribute("src", "https://image.tmdb.org/t/p/original/" + data.results[0].poster_path);
+    moviePosterEl.setAttribute("src", "https://image.tmdb.org/t/p/original/" + data.results[generatedMovie].poster_path);
     movieContainerEl.appendChild(moviePosterEl);
 
     //build description
     let movieDescEl = document.createElement("p");
     movieDescEl.setAttribute("id", "movie-desc");
-    movieDescEl.textContent = data.results[0].overview;
+    movieDescEl.textContent = data.results[generatedMovie].overview;
     movieContainerEl.appendChild(movieDescEl);
+};
+
+let displayRecipe = function(data) {
+    //MATH
+    var generatedRecipe;
+    let generateNumber = function() {
+        generatedRecipe = Math.floor(Math.random()*20);
+        return generatedRecipe
+    }
+
+    generateNumber();
+
+    //build the container part of the display
+    let contentContainerEl = document.createElement("div");
+    contentContainerEl.setAttribute("id", "content-container");
+    contentContainerEl.setAttribute("class", "columns");
+    mainPage.appendChild(contentContainerEl);
+
+    //build the recipe part of the display
+    let recipeContainerEl = document.createElement("div");
+    recipeContainerEl.setAttribute("id", "recipe-container");
+    recipeContainerEl.setAttribute("class", "column");
+    recipeContainerEl.classList.add("is-half");
+    contentContainerEl.appendChild(recipeContainerEl);
+
+    //build the title of the recipe
+    let recipeTitleEl = document.createElement("h1");
+    recipeTitleEl.setAttribute("id", "recipe-title");
+    recipeTitleEl.textContent = data.results[generatedRecipe].name;
+    recipeContainerEl.appendChild(recipeTitleEl);
+
+    //build image of recipe
+    let foodPicEl = document.createElement("img");
+    foodPicEl.setAttribute("id", "recipe-picture");
+    foodPicEl.setAttribute("src", data.results[generatedRecipe].thumbnail_url);
+    recipeContainerEl.appendChild(foodPicEl);
+
+    //build description section
+    let foodDescEl = document.createElement("p");
+    foodDescEl.setAttribute("id", "movie-desc");
+    foodDescEl.textContent = data.results[generatedRecipe].description;
+    recipeContainerEl.appendChild(foodDescEl);
+
+    let foodLink = document.createElement("a")
+    foodLink.setAttribute("href", "https://tasty.co/recipe/" + data.results[generatedRecipe].slug);
+    foodLink.setAttribute("target", "_blank");
+    foodLink.innerText = "Click here for recipe!"
+    recipeContainerEl.appendChild(foodLink);
 };
 
 //event listener to create quiz form when "get started!" is pressed
@@ -400,7 +456,11 @@ document.getElementById("start-button").addEventListener("click", movieQuiz);
 document.getElementById("food-modal-back").addEventListener("click", goBack);
 
 //event listener to fetch movie and food
-document.getElementById("food-modal-confirmation").addEventListener("click", fetchMovie);
+document.getElementById("food-modal-confirmation").addEventListener("click", function() {
+    fetchMovie();
+    fetchRecipe();
+}
+);
 
 //event listener to fetch only movie
 document.getElementById("food-modal-skip").addEventListener("click", fetchMovie);
