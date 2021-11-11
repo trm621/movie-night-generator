@@ -390,18 +390,21 @@ let displayMovie = function(data) {
     //build the title of the movie
     let movieTitleEl = document.createElement("h1");
     movieTitleEl.setAttribute("id", "movie-title");
+    movieTitleEl.classList.add("movie-selection-header");
     movieTitleEl.textContent = "Why don't we watch... " + data.results[generatedMovie].title;
     movieContainerEl.appendChild(movieTitleEl);
 
     //build poster
     let moviePosterEl = document.createElement("img");
     moviePosterEl.setAttribute("id", "movie-poster");
+    moviePosterEl.classList.add("poster-size");
     moviePosterEl.setAttribute("src", "https://image.tmdb.org/t/p/original/" + data.results[generatedMovie].poster_path);
     movieContainerEl.appendChild(moviePosterEl);
 
     //build description
     let movieDescEl = document.createElement("p");
     movieDescEl.setAttribute("id", "movie-desc");
+    movieDescEl.classList.add("movie-selection-info");
     movieDescEl.textContent = data.results[generatedMovie].overview;
     movieContainerEl.appendChild(movieDescEl);
 
@@ -429,25 +432,29 @@ let displayRecipe = function(data) {
     //build the title of the recipe
     let recipeTitleEl = document.createElement("h1");
     recipeTitleEl.setAttribute("id", "recipe-title");
+    recipeTitleEl.classList.add("recipe-selection-header");
     recipeTitleEl.textContent = data.results[generatedRecipe].name;
     recipeContainerEl.appendChild(recipeTitleEl);
 
     //build image of recipe
     let foodPicEl = document.createElement("img");
     foodPicEl.setAttribute("id", "recipe-picture");
+    foodPicEl.classList.add("recipe-pic-size");
     foodPicEl.setAttribute("src", data.results[generatedRecipe].thumbnail_url);
     recipeContainerEl.appendChild(foodPicEl);
 
     //build description section
     let foodDescEl = document.createElement("p");
-    foodDescEl.setAttribute("id", "movie-desc");
+    foodDescEl.setAttribute("id", "recipe-desc");
+    foodDescEl.classList.add("recipe-selection-info");
     foodDescEl.innerHTML = data.results[generatedRecipe].description;
     recipeContainerEl.appendChild(foodDescEl);
 
     let foodLink = document.createElement("a")
     foodLink.setAttribute("href", "https://tasty.co/recipe/" + data.results[generatedRecipe].slug);
     foodLink.setAttribute("target", "_blank");
-    foodLink.innerText = "Click here for recipe!"
+    foodLink.classList.add("recipe-link");
+    foodLink.innerText = "Click here for recipe!";
     recipeContainerEl.appendChild(foodLink);
 };
 

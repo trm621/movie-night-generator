@@ -96,6 +96,51 @@ font-weight: bold;
     text-align: center;
 }
 
+.poster-size {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.movie-selection-header {
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+.movie-selection-info {
+    font-size: 25px;
+    padding: 20px;
+    text-align: center;
+}
+
+.recipe-selection-header {
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+.recipe-selection-info {
+    font-size: 25px;
+    padding: 20px;
+    text-align: center;
+}
+
+.recipe-link {
+    font-size: 25px;
+    padding: 20px;
+    text-align: center;
+}
+
+.recipe-pic-size {
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+}
+
 .trans-bg {
     background: rgb(31, 17, 5, .8);
     border-radius: 5px;
