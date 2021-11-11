@@ -1,12 +1,15 @@
 html {
     background-image: url("../images/popcorn-bg.jpg");
 }
-/* styling the main page begins */
 
 body {
     font-family:'Roboto', sans-serif;
     color: white;
 }
+
+/* styling the main page begins */
+
+
 
 .left-ticket {
     float: left;
@@ -14,6 +17,13 @@ body {
 
 .right-ticket {
     float: right;
+}
+
+#refresh-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* styling the modal begins */

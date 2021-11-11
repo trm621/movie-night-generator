@@ -160,8 +160,13 @@ let movieQuiz = function() {
 
     //event listener for "All Set" to fetch movie data and pull up food modal
     document.getElementById("done-movie-button").addEventListener("click", function() {
-    activateFoodModal();
-    foodQuiz();
+        if (document.querySelector('input[name=movie-input]:checked').value) {
+            activateFoodModal();
+            foodQuiz();
+        }
+        else {
+            return
+        };
 
 });
 };
@@ -385,7 +390,7 @@ let displayMovie = function(data) {
     //build the title of the movie
     let movieTitleEl = document.createElement("h1");
     movieTitleEl.setAttribute("id", "movie-title");
-    movieTitleEl.textContent = data.results[generatedMovie].title;
+    movieTitleEl.textContent = "Why don't we watch... " + data.results[generatedMovie].title;
     movieContainerEl.appendChild(movieTitleEl);
 
     //build poster
@@ -399,6 +404,9 @@ let displayMovie = function(data) {
     movieDescEl.setAttribute("id", "movie-desc");
     movieDescEl.textContent = data.results[generatedMovie].overview;
     movieContainerEl.appendChild(movieDescEl);
+
+    //make refresh button
+    displayRefresh();
 };
 
 let displayRecipe = function(data) {
@@ -443,6 +451,20 @@ let displayRecipe = function(data) {
     recipeContainerEl.appendChild(foodLink);
 };
 
+//make refresh button
+let displayRefresh = function() {
+    let refreshContainerEl = document.createElement("div");
+    refreshContainerEl.setAttribute("id","refresh-container");
+    mainPage.appendChild(refreshContainerEl);
+
+    let refreshButtonEl = document.createElement("button");
+    refreshButtonEl.setAttribute("id", "refresh-button");
+    refreshButtonEl.textContent = "Click to Start Again";
+    refreshButtonEl.setAttribute("onclick","location.reload();");
+    refreshButtonEl.classList.add("button","is-warning","center-text");
+    refreshContainerEl.appendChild(refreshButtonEl);
+}
+
 //event listener to create quiz form when "get started!" is pressed
 document.getElementById("start-button").addEventListener("click", movieQuiz);
 
@@ -451,8 +473,15 @@ document.getElementById("food-modal-back").addEventListener("click", goBack);
 
 //event listener to fetch movie and food
 document.getElementById("food-modal-confirmation").addEventListener("click", function() {
-    fetchMovie();
-    fetchRecipe();
+    //check to see if user picked a food option
+    if (document.querySelector('input[name=food-input]:checked').value){
+        fetchMovie();
+        fetchRecipe();
+    }
+    //dont let them move on if they didnt pick one
+    else {
+        return
+    };
 }
 );
 
