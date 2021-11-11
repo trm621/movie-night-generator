@@ -97,7 +97,7 @@ font-weight: bold;
 }
 
 .poster-size {
-    width: 40%;
+    width: 35%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -130,11 +130,11 @@ font-weight: bold;
 .recipe-link {
     font-size: 25px;
     padding: 20px;
-    text-align: center;
+    margin-left: 35%;
 }
 
 .recipe-pic-size {
-    width: 70%;
+    width: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
