@@ -118,6 +118,7 @@ font-weight: bold;
 .recipe-selection-header {
     font-size: 30px;
     padding: 20px;
+    font-weight: 300;
     text-align: center;
 }
 
@@ -134,7 +135,7 @@ font-weight: bold;
 }
 
 .recipe-pic-size {
-    width: 50%;
+    width: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -162,5 +163,9 @@ font-weight: bold;
         margin: 5px 10px;
         display: block;
         width: 100%;
+    }
+
+    .recipe-link {
+        margin-left: 25%;
     }
 }
