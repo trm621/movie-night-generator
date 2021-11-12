@@ -433,7 +433,7 @@ let displayRecipe = function(data) {
     let recipeTitleEl = document.createElement("h1");
     recipeTitleEl.setAttribute("id", "recipe-title");
     recipeTitleEl.classList.add("recipe-selection-header");
-    recipeTitleEl.textContent = data.results[generatedRecipe].name;
+    recipeTitleEl.textContent = "Why don't we have..." + data.results[generatedRecipe].name;
     recipeContainerEl.appendChild(recipeTitleEl);
 
     //build image of recipe
