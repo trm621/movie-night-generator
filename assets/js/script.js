@@ -1,3 +1,12 @@
+//global variable for local storage saved recipes
+let savedRecipes = [];
+
+//load saved recipes
+let recipeLoader = function() {
+    savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+}
+recipeLoader();
+
 //global variable for the "main" element
 let mainPage = document.getElementById('main-page');
 
@@ -378,6 +387,7 @@ let displayMovie = function(data) {
     let contentContainerEl = document.createElement("div");
     contentContainerEl.setAttribute("id", "content-container");
     contentContainerEl.setAttribute("class", "columns");
+    contentContainerEl.classList.add("trans-bg");
     mainPage.appendChild(contentContainerEl);
 
     //build the movie part of the display
@@ -410,6 +420,7 @@ let displayMovie = function(data) {
 
     //make refresh button
     displayRefresh();
+    displayBookmarksButton();
 };
 
 let displayRecipe = function(data) {
@@ -450,18 +461,55 @@ let displayRecipe = function(data) {
     foodDescEl.innerHTML = data.results[generatedRecipe].description;
     recipeContainerEl.appendChild(foodDescEl);
 
-    let foodLink = document.createElement("a")
+    let foodLink = document.createElement("a");
+    foodLink.setAttribute("id","food-link");
     foodLink.setAttribute("href", "https://tasty.co/recipe/" + data.results[generatedRecipe].slug);
     foodLink.setAttribute("target", "_blank");
     foodLink.classList.add("recipe-link");
     foodLink.innerText = "Click here for recipe!";
     recipeContainerEl.appendChild(foodLink);
+
+    //build bookmark button
+    let bookmarkBtnContainerEl = document.createElement("div");
+    bookmarkBtnContainerEl.setAttribute("id","bookmark-button-container");
+
+    let bookmarkBtnEl = document.createElement("button");
+    bookmarkBtnEl.setAttribute("id","bookmark-button");
+    bookmarkBtnEl.classList.add("button","is-warning","center-text");
+    //add onclick to save
+    bookmarkBtnEl.innerHTML = /*plus sign here*/ "Bookmark This Recipe";
+
+    recipeContainerEl.appendChild(bookmarkBtnContainerEl);
+    bookmarkBtnContainerEl.appendChild(bookmarkBtnEl);
+
+    //function to make bookmark button save and static
+    let bookmarkRecipe = function() {
+        let recipeLink = foodLink.href;
+        //check to see if the recipe has been saved already
+        if (savedRecipes.includes(recipeLink) === false) {
+            savedRecipes.push(recipeLink);
+            localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+            bookmarkBtnEl.classList.add("is-static","is-success","is-light");
+            bookmarkBtnEl.classList.remove("is-warning");
+            bookmarkBtnEl.textContent = "Recipe Saved!";
+        }
+        //let user know recipe already saved
+        else {
+            bookmarkBtnEl.classList.add("is-static","is-light");
+            bookmarkBtnEl.textContent = "Recipe Already Saved!";
+        };
+};
+    //event listener to bookmark
+    bookmarkBtnEl.addEventListener("click", function() {
+        bookmarkRecipe();
+    });
 };
 
 //make refresh button
 let displayRefresh = function() {
     let refreshContainerEl = document.createElement("div");
     refreshContainerEl.setAttribute("id","refresh-container");
+    refreshContainerEl.classList.add("center-button-in-div", "small-margins");
     mainPage.appendChild(refreshContainerEl);
 
     let refreshButtonEl = document.createElement("button");
@@ -470,6 +518,21 @@ let displayRefresh = function() {
     refreshButtonEl.setAttribute("onclick","location.reload();");
     refreshButtonEl.classList.add("button","is-warning","center-text");
     refreshContainerEl.appendChild(refreshButtonEl);
+}
+
+//make bookmarks button
+let displayBookmarksButton = function() {
+    let viewBookmarkContainerEl = document.createElement("div");
+    viewBookmarkContainerEl.setAttribute("id","viewBookmark-container");
+    viewBookmarkContainerEl.classList.add("center-button-in-div", "small-margins");
+    mainPage.appendChild(viewBookmarkContainerEl);
+
+    let viewBookmarkButtonEl = document.createElement("a");
+    viewBookmarkButtonEl.setAttribute("id", "viewBookmark-button");
+    viewBookmarkButtonEl.textContent = "View Bookmarked Recipes";
+    viewBookmarkButtonEl.setAttribute("href","./bookmarks.html");
+    viewBookmarkButtonEl.classList.add("button","is-warning","center-text");
+    viewBookmarkContainerEl.appendChild(viewBookmarkButtonEl);
 }
 
 //event listener to create quiz form when "get started!" is pressed
