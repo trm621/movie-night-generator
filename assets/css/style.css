@@ -66,16 +66,16 @@ margin-left: 5px ;
 /* styling the movie quiz*/
 
 .container {
-margin-top: 5vh;
-padding: 5vh;
-justify-content: center;
-color:white;
-border: 10px solid transparent;
-border-image-source: linear-gradient(45deg, #673400, #B5651D);
-border-image-slice: 1; 
-border-image-width: 5px;
-font-weight: bold;
-}
+    margin-top: 5vh;
+    padding: 5vh;
+    justify-content: center;
+    color:white;
+    border: 10px solid transparent;
+    border-image-source: linear-gradient(45deg, #673400, #B5651D);
+    border-image-slice: 1; 
+    border-image-width: 5px;
+    font-weight: bold;
+    }
 
 .option {
     justify-content: center;
@@ -143,7 +143,7 @@ font-weight: bold;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 10vh;
+    padding: 0vh;
 }
 
 #bookmark-button-container {
@@ -258,6 +258,17 @@ font-weight: bold;
 
     #food-quiz-question {
         font-size: 20px;
+    }
+
+    #logo {
+        text-align: center;
+        top: none;
+        float: none;
+        margin-left: none;
+        }
+        
+    #main-bookmarks-container {
+        text-align: center;
     }
 
 }
