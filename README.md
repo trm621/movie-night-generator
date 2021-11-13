@@ -1,5 +1,7 @@
 # Binge Buddy Movie Night Generator
 
+https://trm621.github.io/movie-night-generator/
+
 ## Description
 Binge Buddy utilizes [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction) and [Tasty API](https://rapidapi.com/apidojo/api/tasty) to randomly generate movies and recipes based on user input. It is simple to use and guides the user through prompts to select the type of movie and food they're looking for to return a result.
 
