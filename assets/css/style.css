@@ -17,6 +17,13 @@ body {
     float: right;
 }
 
+#logo {
+text-align: left;
+top: 0%;
+float: left;
+margin-left: 5px ;
+}
+
 #main-bookmarks-container {
     text-align: right;
 }
