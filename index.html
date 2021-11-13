@@ -4,47 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOVIE TIME</title>
+    <title>Binge Buddy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<body>
+<body class="is-clipped">
+<!--header for logo and bookmarks link-->
+  <header id="main-page-header" class="columns">
+    <div class="column is-half " id="logo"> <img src="./assets/images/Bingebuddylogo.png" alt="Bingebuddylogo"></div>
 
-<!-- welcome page -->
-<main id="main-page">
-    <div id= "welcome-page">
-        <h1 class="is-size-1 is-uppercase has-text-weight-bold">Welcome to Movie Night Generator!</h1>
-        <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="img2 image is-64x64"/>
-         <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="img2 image is-64x64"/>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore a incidunt, delectus sed ratione, optio magni quibusdam eligendi voluptas nesciunt consequuntur! Assumenda, dolorum fugit harum quidem suscipit est accusamus.</p>
-        <button id="start-button" class=" button is-warning">Click Here to Get Started!</button>
+    <div id="main-bookmarks-container" class="column is-half">
+      <a href="./bookmarks.html" class="is-size-4">View Bookmarked Recipes</a>
     </div>
-</main>
 
-<!--movie modal start-->
+  </header>
 
-    <div id="movie-modal  " class="modal">
+  <!-- welcome page -->
+  <main id="main-page" class="columns center-all">
+
+      <div id= "welcome-page" class="column is-three-quarters trans-bg">
+          <h3 class="is-size-1 is-uppercase has-text-weight-bold">Welcome to Binge Buddy!</h3>
+          <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="left-ticket image is-64x64"/>
+          <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-movie-ticket-cinema-konkapp-flat-konkapp-1.png" class="right-ticket image is-64x64"/>
+          <p>Don't know what to watch? Tired of scrolling mindlessly through all your streaming platforms and TV channels? Let Binge Buddy do the work for you. Pick what you're in the mood for and let us cut out the decision making for you. We even got you covered for food. Tell us what you want, skip the arguing, and binge.</p>
+          <br>
+          <button id="start-button" class=" button is-warning">Click Here to Get Started!</button>
+      </div>
+      
+  </main>
+
+<!--error modal start, this needs to be added to .catch-->
+
+    <div id="error-modal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">Feeling Hungry?</p>
-            <button onclick="closeMovieModal()" class="delete" aria-label="close"></button>
+            <span class="modal-card-title icon-text has-text-warning">
+              <span class="icon ">
+                <i class="fas fa-home">
+                  <img src="./assets/images/sad.png">
+                </i>
+              </span>
+              <span class="has-text-warning">... Uh-Oh...</span>
+            </span>
           </header>
           <section class="modal-card-body">
-            <p>We can set you up with a recipe to go with your movie.</p>
+            <p>An error occurred. Please try again!</p>
           </section>
           <footer class="modal-card-foot">
-            <button class="button is-success">Yes! Feed me!</button>
-            <button class="button">No, just a movie!</button>
-            <button onclick="closeMovieModal()" class="button">Wait, go back!</button>
+            <button class="button is-warning" onclick="location.reload();">Go Back</button>
           </footer>
         </div>
       </div>
-      <!--moive modal end-->
-
+      <!--error modal end-->
   
-    <div class="modal  ">
-    <div class="modal-background"></div>
+    <div class="modal" id="food-modal">
+    <div class="modal-background" onclick="goBack()"></div>
     <div class="modal-card">
       <!---modal header start-->
       <header class="modal-card-head">
@@ -57,25 +75,26 @@
           </span>
           <span class="has-text-warning">Feeling Hungry?</span>
         </span>
-        <button class="delete" aria-label="close"></button>
+        <button class="delete" aria-label="close" onclick="goBack()"></button>
       </header>
       <!----modal header end-->
-      <section class="modal-card-body">
+      <section id="food-modal-body" class="modal-card-body">
         
       
         <break></break>
-        <p>We can set you up with a recipe to go with your movie!</p>
+        <p class="food-quiz-question">We can set you up with a recipe to go with your movie!</p>
       </section>
       <footer class="modal-card-foot">
-        <button class=" button is-warning">Wait, No go back!</button>
-        <button class="button is-warning">Yes! Feed me!</button>
-        <button class="button is-warning">Nah, I Only Want a Movie</button>
+        <button id="food-modal-back" class=" button is-warning">Wait, No go back!</button>
+        <button id="food-modal-confirmation" class="button is-warning">Yes! Feed me!</button>
+        <button id= "food-modal-skip" class="button is-warning">Nah, I Only Want a Movie</button>
         
       </footer>
     </div>
   </div>
 
     
-<script src="assets/js/script.js"></script>
+<script src="./assets/js/script.js"></script>
+
 </body>
 </html>
