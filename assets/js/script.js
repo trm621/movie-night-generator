@@ -492,9 +492,13 @@ let displayRecipe = function(data) {
 
     //function to make bookmark button save and static
     let bookmarkRecipe = function() {
-        let recipeLink = foodLink.href; 
+        let recipeLink = foodLink.href;
+        //check for falsy value of savedRecipes and create array if no bookmarks
+        if (!savedRecipes) {
+            savedRecipes = [];
+        } 
         //check to see if the recipe has been saved already
-        if (savedRecipes.includes(recipeLink) === false) {
+        else if (savedRecipes.includes(recipeLink) === false) {
             savedRecipes.push(recipeLink);
             localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
             bookmarkBtnEl.classList.add("is-static","is-success","is-light");

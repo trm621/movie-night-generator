@@ -66,16 +66,16 @@ margin-left: 5px ;
 /* styling the movie quiz*/
 
 .container {
-margin-top: 5vh;
-padding: 5vh;
-justify-content: center;
-color:white;
-border: 10px solid transparent;
-border-image-source: linear-gradient(45deg, #673400, #B5651D);
-border-image-slice: 1; 
-border-image-width: 5px;
-font-weight: bold;
-}
+    margin-top: 5vh;
+    padding: 5vh;
+    justify-content: center;
+    color:white;
+    border: 10px solid transparent;
+    border-image-source: linear-gradient(45deg, #673400, #B5651D);
+    border-image-slice: 1; 
+    border-image-width: 5px;
+    font-weight: bold;
+    }
 
 .option {
     justify-content: center;
