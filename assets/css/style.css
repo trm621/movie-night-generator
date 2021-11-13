@@ -19,11 +19,19 @@ body {
     float: right;
 }
 
-#refresh-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+#main-bookmarks-container {
+    text-align: right;
+}
+
+#main-bookmarks-container a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+#main-bookmarks-container a:hover {
+    background-color: rgb(31, 17, 5, .8);
 }
 
 /* styling the modal begins */
@@ -79,25 +87,9 @@ font-weight: bold;
     color: white; 
 }
 
-/*utility styles*/
-.center-all {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.center-text {
-    text-align: center;
-}
-
+/*results page*/
 .poster-size {
-    width: 35%;
+    width: 45%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -130,7 +122,6 @@ font-weight: bold;
 
 .recipe-link {
     font-size: 25px;
-    padding: 20px;
     margin-left: 35%;
 }
 
@@ -139,12 +130,56 @@ font-weight: bold;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 50px;
+    padding: 10vh;
 }
 
+#bookmark-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/*bookmarks page styles*/
+#bookmarked-content a {
+    text-decoration: none;
+    color: white;
+}
+
+#bookmarked-content a:hover {
+    color: grey;
+}
+
+/*utility styles*/
+.center-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.center-text {
+    text-align: center;
+}
 .trans-bg {
     background: rgb(31, 17, 5, .8);
     border-radius: 5px;
+}
+
+.center-button-in-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.small-margins {
+    margin: 2vh;
 }
 
 /*Media Query*/
@@ -167,5 +202,13 @@ font-weight: bold;
 
     .recipe-link {
         margin-left: 25%;
+    }
+
+    .recipe-pic-size {
+        width: 60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0vh;
     }
 }
