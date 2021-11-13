@@ -333,7 +333,7 @@ let fetchMovie = function() {
     })
     //for if there is an error with the api
     .catch(function(error) {
-        alert("An error occurred - please try again later!") //placeholder!! NO ALERTS
+       activateErrorModal();
     })
 };
 
