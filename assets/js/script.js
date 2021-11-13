@@ -193,10 +193,12 @@ let foodModal = document.getElementById("food-modal-body");
 // create header
 let foodQuizHeaderEl = document.createElement("h1");
     foodQuizHeaderEl.textContent = "What are you in the mood for?";
+    foodQuizHeaderEl.setAttribute("class","food-quiz-question");
     foodContainerEl.appendChild(foodQuizHeaderEl);
 
 // create div for option 1
 let foodQuizOption1El = document.createElement("div");
+    foodQuizOption1El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption1El);
 
     let comfortFoodEl = document.createElement("input");
@@ -214,6 +216,7 @@ let foodQuizOption1El = document.createElement("div");
 
 // create div for option 2
 let foodQuizOption2El = document.createElement("div");
+    foodQuizOption2El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption2El);
 
     let dateNightEl = document.createElement("input");
@@ -231,6 +234,7 @@ let foodQuizOption2El = document.createElement("div");
 
 // create div for option 3
 let foodQuizOption3El = document.createElement("div");
+    foodQuizOption3El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption3El);
 
     let glutenFreeEl = document.createElement("input");
@@ -248,6 +252,7 @@ let foodQuizOption3El = document.createElement("div");
 
 // create div for option 4
 let foodQuizOption4El = document.createElement("div");
+    foodQuizOption4El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption4El);
 
     let vegetarianEl = document.createElement("input");
@@ -265,6 +270,7 @@ let foodQuizOption4El = document.createElement("div");
 
 //create div for option 5
 let foodQuizOption5El = document.createElement("div");
+    foodQuizOption5El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption5El);
 
     let underThirtyEl = document.createElement("input");
@@ -282,6 +288,7 @@ let foodQuizOption5El = document.createElement("div");
 
 //create div for option 6
 let foodQuizOption6El = document.createElement("div");
+    foodQuizOption6El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption6El);
 
     let easyEl = document.createElement("input");
@@ -299,6 +306,7 @@ let foodQuizOption6El = document.createElement("div");
 
 //create div for option 7
 let foodQuizOption7El = document.createElement("div");
+    foodQuizOption7El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption7El);
 
     let casualPartyEl = document.createElement("input");
@@ -333,7 +341,7 @@ let fetchMovie = function() {
     })
     //for if there is an error with the api
     .catch(function(error) {
-        alert("An error occurred - please try again later!") //placeholder!! NO ALERTS
+       activateErrorModal();
     })
 };
 
@@ -477,25 +485,16 @@ let displayRecipe = function(data) {
     bookmarkBtnEl.setAttribute("id","bookmark-button");
     bookmarkBtnEl.classList.add("button","is-warning","center-text");
     //add onclick to save
-    bookmarkBtnEl.innerHTML = /*plus sign here*/ "Bookmark This Recipe";
+    bookmarkBtnEl.innerHTML = "Bookmark This Recipe";
 
     recipeContainerEl.appendChild(bookmarkBtnContainerEl);
     bookmarkBtnContainerEl.appendChild(bookmarkBtnEl);
 
     //function to make bookmark button save and static
     let bookmarkRecipe = function() {
-        let recipeLink = foodLink.href;
-        //check is saved recipes is empty
-        if (!savedRecipes) {
-            savedRecipes = [];
-            savedRecipes.push(recipeLink);
-            localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-            bookmarkBtnEl.classList.add("is-static","is-success","is-light");
-            bookmarkBtnEl.classList.remove("is-warning");
-            bookmarkBtnEl.textContent = "Recipe Saved!";
-        }
+        let recipeLink = foodLink.href; 
         //check to see if the recipe has been saved already
-        else if (savedRecipes.includes(recipeLink) === false) {
+        if (savedRecipes.includes(recipeLink) === false) {
             savedRecipes.push(recipeLink);
             localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
             bookmarkBtnEl.classList.add("is-static","is-success","is-light");
