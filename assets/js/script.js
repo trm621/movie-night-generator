@@ -193,6 +193,7 @@ let foodModal = document.getElementById("food-modal-body");
 // create header
 let foodQuizHeaderEl = document.createElement("h1");
     foodQuizHeaderEl.textContent = "What are you in the mood for?";
+    foodQuizHeaderEl.setAttribute("class","food-quiz-question");
     foodContainerEl.appendChild(foodQuizHeaderEl);
 
 // create div for option 1
