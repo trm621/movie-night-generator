@@ -143,7 +143,7 @@ font-weight: bold;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 10vh;
+    padding: 0vh;
 }
 
 #bookmark-button-container {
@@ -258,6 +258,17 @@ font-weight: bold;
 
     #food-quiz-question {
         font-size: 20px;
+    }
+
+    #logo {
+        text-align: center;
+        top: none;
+        float: none;
+        margin-left: none;
+    }
+
+    #main-bookmarks-container {
+        text-align: center;
     }
 
 }

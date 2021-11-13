@@ -11,7 +11,7 @@ Binge Buddy utilizes [TMDB API](https://developers.themoviedb.org/3/getting-star
 - Mobile responsiveness
 
 ## Preview
-img here
+![preview of app results screen](./assets/images/app_preview.png)
 
 ## Roadmap
 
