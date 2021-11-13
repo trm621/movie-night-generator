@@ -477,25 +477,16 @@ let displayRecipe = function(data) {
     bookmarkBtnEl.setAttribute("id","bookmark-button");
     bookmarkBtnEl.classList.add("button","is-warning","center-text");
     //add onclick to save
-    bookmarkBtnEl.innerHTML = /*plus sign here*/ "Bookmark This Recipe";
+    bookmarkBtnEl.innerHTML = "Bookmark This Recipe";
 
     recipeContainerEl.appendChild(bookmarkBtnContainerEl);
     bookmarkBtnContainerEl.appendChild(bookmarkBtnEl);
 
     //function to make bookmark button save and static
     let bookmarkRecipe = function() {
-        let recipeLink = foodLink.href;
-        //check is saved recipes is empty
-        if (!savedRecipes) {
-            savedRecipes = [];
-            savedRecipes.push(recipeLink);
-            localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-            bookmarkBtnEl.classList.add("is-static","is-success","is-light");
-            bookmarkBtnEl.classList.remove("is-warning");
-            bookmarkBtnEl.textContent = "Recipe Saved!";
-        }
+        let recipeLink = foodLink.href; 
         //check to see if the recipe has been saved already
-        else if (savedRecipes.includes(recipeLink) === false) {
+        if (savedRecipes.includes(recipeLink) === false) {
             savedRecipes.push(recipeLink);
             localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
             bookmarkBtnEl.classList.add("is-static","is-success","is-light");

@@ -141,6 +141,19 @@ font-weight: bold;
 }
 
 /*bookmarks page styles*/
+
+.bookmarked-header {
+    font-size: 35px;
+    font-family: fantasy;
+    padding: 20px;
+}
+
+#bookmarked-content {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 25px;
+}
 #bookmarked-content a {
     text-decoration: none;
     color: white;
