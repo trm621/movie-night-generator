@@ -197,6 +197,7 @@ let foodQuizHeaderEl = document.createElement("h1");
 
 // create div for option 1
 let foodQuizOption1El = document.createElement("div");
+    foodQuizOption1El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption1El);
 
     let comfortFoodEl = document.createElement("input");
@@ -214,6 +215,7 @@ let foodQuizOption1El = document.createElement("div");
 
 // create div for option 2
 let foodQuizOption2El = document.createElement("div");
+    foodQuizOption2El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption2El);
 
     let dateNightEl = document.createElement("input");
@@ -231,6 +233,7 @@ let foodQuizOption2El = document.createElement("div");
 
 // create div for option 3
 let foodQuizOption3El = document.createElement("div");
+    foodQuizOption3El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption3El);
 
     let glutenFreeEl = document.createElement("input");
@@ -248,6 +251,7 @@ let foodQuizOption3El = document.createElement("div");
 
 // create div for option 4
 let foodQuizOption4El = document.createElement("div");
+    foodQuizOption4El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption4El);
 
     let vegetarianEl = document.createElement("input");
@@ -265,6 +269,7 @@ let foodQuizOption4El = document.createElement("div");
 
 //create div for option 5
 let foodQuizOption5El = document.createElement("div");
+    foodQuizOption5El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption5El);
 
     let underThirtyEl = document.createElement("input");
@@ -282,6 +287,7 @@ let foodQuizOption5El = document.createElement("div");
 
 //create div for option 6
 let foodQuizOption6El = document.createElement("div");
+    foodQuizOption6El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption6El);
 
     let easyEl = document.createElement("input");
@@ -299,6 +305,7 @@ let foodQuizOption6El = document.createElement("div");
 
 //create div for option 7
 let foodQuizOption7El = document.createElement("div");
+    foodQuizOption7El.setAttribute("class","option");
     foodContainerEl.appendChild(foodQuizOption7El);
 
     let casualPartyEl = document.createElement("input");
